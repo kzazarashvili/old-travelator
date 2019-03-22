@@ -1,0 +1,58 @@
+require:
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.5.0
+  Include:
+    - '*.gemspec'
+  Exclude:
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'db/*'
+
+Documentation:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  EnforcedStyle: rails
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: when_needed
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%i": "[]"
+    "%r": "{}"
+    "%w": "[]"
+    "%W": "[]"
+    "%x": "[]"
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'config/routes.rb'
+
+Metrics/ClassLength:
+  Max: 500
+
+Metrics/ModuleLength:
+  Max: 500
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 100
