@@ -16,6 +16,9 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'jquery-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
