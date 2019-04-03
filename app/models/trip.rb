@@ -5,7 +5,7 @@ class Trip < ApplicationRecord
   validate :ended_at_being_in_past
 
   before_save :calculate_and_set_duration_and_past, if: :ending_date_known?
-  
+
   private
 
   def calculate_and_set_duration_and_past
@@ -22,9 +22,12 @@ class Trip < ApplicationRecord
   end
 
   def calculate_duration
-    (ended_at - started_at).to_i
+    same_day? ? 1 : (ended_at - started_at).to_i
   end
 
+  def same_day?
+    ended_at == started_at
+  end
 
   def ended_at_being_in_past
     return if ended_at.blank?
