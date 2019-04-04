@@ -31,6 +31,19 @@
 
 en:
   devise:
+    passwords:
+      new:
+        title: Forgot your password?
+        submit: Send me reset password instructions
+        label:
+          email: Email
+      edit:
+        title: Change your password
+        submit: Change my password
+        label:
+          password: New password
+          password: Confirm new
+        characters-limit: "#{limit} characters minimum" 
     registrations:
       new:
         title: Sign up
