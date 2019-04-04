@@ -1,13 +1,13 @@
 .container
   .col-md-9
-    %h2 Log in
+    %h2= t('.title')
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-group
-        = f.label :email
+        = f.label :email, t('.label.email')
         %br
         = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
       .form-group
-        = f.label :password
+        = f.label :password, t('.label.password')
         %br
         = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
       - if devise_mapping.rememberable?
@@ -15,10 +15,11 @@
           = f.check_box :remember_me
           = f.label :remember_me
       .actions
-        = f.submit 'Log in', class: 'btn btn-primary'
+        = f.submit t('.submit'), class: 'btn btn-primary'
     %br
-    = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
+    = link_to t('.sign-in.google'), user_google_oauth2_omniauth_authorize_path
     %br
-    = link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path
+    = link_to t('.sign-in.facebook'), user_facebook_omniauth_authorize_path
+    %br
     %br
     = render 'devise/shared/links'
