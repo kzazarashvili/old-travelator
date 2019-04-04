@@ -4,6 +4,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = current_user.trips
+    @new_trip = current_user.trips.build
   end
 
   def show; end
