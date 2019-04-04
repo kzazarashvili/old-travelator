@@ -1,8 +1,8 @@
 %p
-  Hello #{@email}!
+  = t('.title', email: @email)
 - if @resource.try(:unconfirmed_email?)
   %p
-    We're contacting you to notify you that your email is being changed to #{@resource.unconfirmed_email}.
+    = t('.unconfirmed-email-change-text' email: @resource.unconfirmed_email)
 - else
   %p
-    We're contacting you to notify you that your email has been changed to #{@resource.email}.
+      = t('.email-change-text' email: @resource.email)
