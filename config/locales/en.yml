@@ -31,6 +31,34 @@
 
 en:
   devise:
+    registrations:
+      new:
+        title: Sign up
+        submit: Sign up
+        label:
+          username: Username
+          email: Email
+          password: Password
+          password_confirmation: Password confirmations
+        character-limit: "%{limit} characters minimum"
+      edit:
+        title: Edit User
+        submit: Update
+        title_cancel: Cancel my account
+        unhappy: Unhappy?
+        cancel: Cancel my account
+        confirm: Are you sure?
+        back: Back
+        hint:
+          password: "(leave blank if you don't want to change it)"
+          password_confirmation: "(we need your current password to confirm your changes)"
+        label:
+          email: Email
+          password: Password
+          password_confirmation: Password confirmations
+          current_password: Current password
+          remember: Remember me
+        character-limit: characters minimum
     sessions:
       new:
         title: Log in
@@ -38,6 +66,7 @@ en:
         label:
           email: Email
           password: Password
+          remember: Remember me
         sign-in:
           google: Sign in with Google
           facebook: Sign in with Facebook

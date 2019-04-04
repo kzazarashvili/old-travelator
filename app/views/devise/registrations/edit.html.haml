@@ -1,33 +1,32 @@
 .container
   .col-md-9
-    %h2
-      Edit #{resource_name.to_s.humanize}
+    %h2= t('.title')
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render 'devise/shared/error_messages', resource: resource
       .form-group
-        = f.label :email
+        = f.label :email, t('.label.email')
         = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
       .form-group
-        = f.label :password
-        %i (leave blank if you don't want to change it)
+        = f.label :password, t('.label.password')
+        %i= t('.hint.password')
         = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
         - if @minimum_password_length
           %em
-            = @minimum_password_length
-            characters minimum
+            = t('.character-limit', limit: @minimum_password_length )
       .form-group
-        = f.label :password_confirmation
+        = f.label :password_confirmation, t('.label.password_confirmation')
         = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
       .form-group
-        = f.label :current_password
-        %i (we need your current password to confirm your changes)
+        = f.label :current_password, t('.label.current_password')
+        %i= t('.hint.password_confirmation')
         = f.password_field :current_password, autocomplete: 'current-password', class: 'form-control'
       .actions
-        = f.submit 'Update', class: 'btn btn-primary'
-    %h3 Cancel my account
+        = f.submit t('.submit'), class: 'btn btn-primary'
+    %h3= t('.title_cancel')
     %p
-      Unhappy? #{button_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete}
-    = link_to 'Back', :back
+      = t('.unhappy')
+      #{button_to t('.cancel'), registration_path(resource_name), data: { confirm: t('.confirm') }, method: :delete}
+    = link_to t('.back'), :back
