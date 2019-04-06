@@ -1,7 +1,4 @@
-%p
-  = t('.title', email: @resource.email)
-%p
-  = t('.text.information-why-locked')
-%p Click the link below to unlock your account:
-  = t('.text.instruction')
+%p= t('.title', email: @resource.email)
+%p= t('.text.information-why-locked')
+%p= t('.text.instruction')
 %p= link_to t('.link'), unlock_url(@resource, unlock_token: @token)

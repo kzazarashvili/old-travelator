@@ -1,6 +1,6 @@
 .container
   .col-md-9
-    %h2= t.('.title')
+    %h2= t('.title')
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
       = render 'devise/shared/error_messages', resource: resource
       = f.hidden_field :reset_password_token
@@ -8,8 +8,7 @@
         = f.label :password, t('.label.password')
         - if @minimum_password_length
           %em
-          = t.('.characters-limit', limit:@minimum_password_length)
-            (#{@minimum_password_length} characters minimum)
+            = t('.characters-limit', limit: @minimum_password_length)
         = f.password_field :password, autofocus: true, autocomplete: 'new-password', class: 'form-control'
       .form-group
         = f.label :password_confirmation, t('.label.password_confirmation')

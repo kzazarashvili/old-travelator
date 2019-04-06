@@ -49,14 +49,14 @@ en:
       password_change:
         title: "Hello %{email} !"
         text:
-          change-password-text: We're contacting you to notify you that your password has been changed.
+          change-password-text: "We're contacting you to notify you that your password has been changed."
       reset_password_instructions:
         title: "Hello %{email} !"
         change-password: Change my password
         text:
           information: Someone has requested a link to change your password. You can do this through the link below.
-          ignore: If you didn't request this, please ignore this email.
-          information-about-link: Your password won't change until you access the link above and create a new one.
+          ignore: "If you didn't request this, please ignore this email."
+          information-about-link: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
         title: "Hello %{email} !"
         link: Unlock my account
@@ -95,6 +95,7 @@ en:
         confirm: Are you sure?
         back: Back
         hint:
+          confirmation: "Currently waiting confirmation for: %{email}"
           password: "(leave blank if you don't want to change it)"
           password_confirmation: "(we need your current password to confirm your changes)"
         label:
@@ -120,8 +121,8 @@ en:
         log-in: Log in
         sign-up: Sign up
         forgot-your-password: Forgot your password?
-        didnt-receive-confirmation: Didn't receive confirmation instructions?
-        didnt-receive-unlock: Didn't receive unlock instructions?
+        didnt-receive-confirmation: "Didn't receive confirmation instructions?"
+        didnt-receive-unlock: "Didn't receive unlock instructions?"
 
     unlocks:
       new:
@@ -129,3 +130,7 @@ en:
         submit: Resend unlock instructions
         label:
           email: Email
+  welcome:
+    index:
+      log-in: Log in
+      log-out: Log out
