@@ -1,0 +1,8 @@
+%p
+  = t('.title', email: @email)
+- if @resource.try(:unconfirmed_email?)
+  %p
+    = t('.unconfirmed-email-change-text', email: @resource.unconfirmed_email)
+- else
+  %p
+      = t('.email-change-text', email: @resource.email)

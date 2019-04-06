@@ -1,0 +1,4 @@
+%p
+  = t('.title', email: @email)
+%p= t('.confirm-text')
+%p= link_to t('.confirm-account'), confirmation_url(@resource, confirmation_token: @token)
