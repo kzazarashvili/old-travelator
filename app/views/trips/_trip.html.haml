@@ -1,0 +1,14 @@
+%label trip id
+= trip.id
+%br
+%label start
+= trip.started_at
+%br
+%label end
+= trip.ended_at
+%br
+%label duration
+= trip.duration
+%br
+= link_to 'delete trip', trip, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+%br

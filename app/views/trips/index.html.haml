@@ -1,7 +1,10 @@
 %h1 Hello, pass ypur trips please.
 
 
-= simple_form_for @new_trip do |f|
-  f.input :started_at
-  f.input :ended_at
-  f.button :submit
+= simple_form_for Trip.new, class: 'trip-create-form', remote: true do |f|
+  = f.input :started_at, as: :string, wrapper: :date
+  = f.input :ended_at, as: :string, wrapper: :date
+  = f.button :submit, class: 'btn btn-primary', id: 'submit-btn'
+
+- @trips.each do |trip|
+  = render 'trip', trip: trip
