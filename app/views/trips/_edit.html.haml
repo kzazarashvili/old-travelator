@@ -1,0 +1,7 @@
+= simple_form_for @trip, remote: true do |f|
+  = f.input :started_at, as: :string
+  = f.input :ended_at, as: :string
+  %i.fa.fa-calendar
+  %br
+  %br
+  = f.button :submit, class: 'btn btn-primary', id: 'submit-btn'

@@ -1,14 +1,16 @@
-%label trip id
-= trip.id
-%br
-%label start
-= trip.started_at
-%br
-%label end
-= trip.ended_at
-%br
-%label duration
-= trip.duration
-%br
-= link_to 'delete trip', trip, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
-%br
+.container{:id => "trip-#{trip.id}"}
+  %label trip id
+  = trip.id
+  %br
+  %label start
+  = trip.started_at
+  %br
+  %label end
+  = trip.ended_at
+  %br
+  %label duration
+  = trip.duration
+  %br
+  = link_to 'delete trip', trip, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+  = link_to 'Edit', edit_trip_path(trip) , remote: true, class: 'btn btn-primary', id: "edit-trip-#{trip.id}"
+  %br

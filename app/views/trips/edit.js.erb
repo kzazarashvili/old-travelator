@@ -1,0 +1,17 @@
+$('#trip-<%= @trip.id %>').replaceWith("<%= j render 'edit', trip: @trip %>");
+
+$(document).ready(function(){
+  $("#edit_trip_<%= @trip.id %> #trip_started_at").prop('disabled', true);
+  $("#edit_trip_<%= @trip.id %> #trip_ended_at").prop('disabled', true);
+
+  $('#edit_trip_<%= @trip.id %> .fa-calendar').flatpickr({
+    mode: "range",
+    onChange: function(selectedDates, dateStr, instance){
+      $("#edit_trip_<%= @trip.id %> #trip_started_at").prop('disabled', false);
+      $("#edit_trip_<%= @trip.id %> #trip_ended_at").prop('disabled', false);
+      const dates = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
+      $('#edit_trip_<%= @trip.id %> #trip_started_at').val(dates[0]);
+      $('#edit_trip_<%= @trip.id %> #trip_ended_at').val(dates[1]);
+    },
+  });
+});

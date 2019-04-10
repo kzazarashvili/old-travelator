@@ -42,7 +42,10 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-    redirect_to trips_path
+    respond_to do |format|
+      format.html {redirect_to trips_path }
+      format.js
+    end
   end
 
   private

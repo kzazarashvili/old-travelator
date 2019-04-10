@@ -1,6 +1,6 @@
-%h1 Hello, pass ypur trips please.
 
 .container
+  %h1 Hello, pass your trips please.
 
   = simple_form_for Trip.new, class: 'trip-create-form', remote: true do |f|
     = f.input :started_at, as: :string
