@@ -20,12 +20,16 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('#new_trip .fa-calendar').flatpickr({
+  window.setupDatePicker('#new_trip');
+});
+
+window.setupDatePicker = function(id) {
+  $(id + ' .fa-calendar').flatpickr({
     mode: "range",
     onChange: function(selectedDates, dateStr, instance){
       const dates = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
-      $('#new_trip #trip_started_at').val(dates[0]);
-      $('#new_trip #trip_ended_at').val(dates[1]);
+      $(id + ' #trip_started_at').val(dates[0]);
+      $(id + ' #trip_ended_at').val(dates[1]);
     },
   });
-});
+};

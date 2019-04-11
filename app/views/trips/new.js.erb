@@ -1,12 +1,5 @@
 $('#new_trip').replaceWith("<%= j render 'new', trip: @trip %>")
 
 $(document).ready(function(){
-  $('#new_trip .fa-calendar').flatpickr({
-    mode: "range",
-    onChange: function(selectedDates, dateStr, instance){
-      const dates = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
-      $('#new_trip #trip_started_at').val(dates[0]);
-      $('#new_trip #trip_ended_at').val(dates[1]);
-    },
-  });
+  window.setupDatePicker('#new_trip');
 });
