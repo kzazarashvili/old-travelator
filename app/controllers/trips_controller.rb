@@ -18,7 +18,7 @@ class TripsController < ApplicationController
     respond_to do |format|
       if @trip.save
         format.html { redirect_to @trip }
-        format.js   { }
+        format.js
       else
         format.html { render :new }
         format.js { render :new }
@@ -32,7 +32,7 @@ class TripsController < ApplicationController
     respond_to do |format|
       if @trip.update(trip_params)
         format.html { redirect_to @trip }
-        format.js   { }
+        format.js
       else
         format.html { render :edit }
         format.js { render :edit }
