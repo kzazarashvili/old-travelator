@@ -7,6 +7,8 @@ class Trip < ApplicationRecord
   before_save :calculate_and_set_duration_and_past, if: :ending_date_known?
 
   default_scope { where(past: false) }
+  scope :order_by_created_at, -> { order(created_at: :desc) }
+
   private
 
   def calculate_and_set_duration_and_past

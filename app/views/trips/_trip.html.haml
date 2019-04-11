@@ -1,4 +1,4 @@
-.d-flex{id: "trip-#{trip.id}"}
+.d-flex[trip]
   .p-2
     %label start:
     %span= trip.started_at&.strftime('%B %d, %Y')

@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i[show edit update destroy]
 
   def index
-    @trips = current_user.trips.order(id: :desc)
+    @trips = current_user.trips.order_by_created_at
   end
 
   def show; end
@@ -43,7 +43,7 @@ class TripsController < ApplicationController
   def destroy
     @trip.destroy
     respond_to do |format|
-      format.html {redirect_to trips_path }
+      format.html { redirect_to trips_path }
       format.js
     end
   end
