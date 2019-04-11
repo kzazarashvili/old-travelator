@@ -2,13 +2,9 @@
 .container
   %h1 Hello, pass your trips please.
 
-  = simple_form_for Trip.new, class: 'trip-create-form', remote: true do |f|
-    = f.input :started_at, as: :string
-    = f.input :ended_at, as: :string
-    %i.fa.fa-calendar
-    %br
-    %br
-    = f.button :submit, class: 'btn btn-primary', id: 'submit-btn'
+  = render 'new', trip: Trip.new
 
-- @trips.each do |trip|
-  = render 'trip', trip: trip
+  %hr
+
+.container#trips
+  = render @trips

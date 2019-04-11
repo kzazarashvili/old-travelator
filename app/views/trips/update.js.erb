@@ -1,1 +1,1 @@
-$('#edit_trip_<%= @trip.id %>').html("<%= j render 'trip', trip: @trip %>" )
+$('#edit_trip_<%= @trip.id %>').replaceWith("<%= j render 'trip', trip: @trip %>" )

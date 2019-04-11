@@ -20,14 +20,9 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $("#new_trip #trip_started_at").prop('disabled', true);
-  $("#new_trip #trip_ended_at").prop('disabled', true);
-
   $('#new_trip .fa-calendar').flatpickr({
     mode: "range",
     onChange: function(selectedDates, dateStr, instance){
-      $("#new_trip #trip_started_at").prop('disabled', false);
-      $("#new_trip #trip_ended_at").prop('disabled', false);
       const dates = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
       $('#new_trip #trip_started_at').val(dates[0]);
       $('#new_trip #trip_ended_at').val(dates[1]);

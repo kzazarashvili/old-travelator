@@ -1,16 +1,13 @@
-.container{:id => "trip-#{trip.id}"}
-  %label trip id
-  = trip.id
-  %br
-  %label start
-  = trip.started_at
-  %br
-  %label end
-  = trip.ended_at
-  %br
-  %label duration
-  = trip.duration
-  %br
-  = link_to 'delete trip', trip, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
-  = link_to 'Edit', edit_trip_path(trip) , remote: true, class: 'btn btn-primary', id: "edit-trip-#{trip.id}"
-  %br
+.d-flex{id: "trip-#{trip.id}"}
+  .p-2
+    %label start:
+    %span= trip.started_at&.strftime('%B %d, %Y')
+  .p-2
+    %label end:
+    %span= trip.ended_at&.strftime('%B %d, %Y')
+  .p-2
+    %label duration:
+    %span= trip.duration
+  .ml-auto.p-2
+    = link_to 'Delete trip', trip, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+    = link_to 'Edit', edit_trip_path(trip) , remote: true, class: 'btn btn-primary'

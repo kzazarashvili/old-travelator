@@ -1,0 +1,9 @@
+= simple_form_for trip, remote: true, html: { class: 'form-inline d-flex' } do |f|
+  .p-2
+    %i.fa.fa-calendar
+  .p-2
+    = f.input :started_at, placeholder: 'Start date', label: false , as: :string, readonly: true
+  .p-2
+    = f.input :ended_at, placeholder: 'End date', label: false , as: :string, readonly: true
+  .ml-auto.p-2
+    = f.button :submit, class: 'btn btn-primary', id: 'submit-btn'
