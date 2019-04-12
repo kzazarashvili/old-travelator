@@ -1,6 +1,7 @@
 
 .container
-  %h1 Hello, pass your trips please.
+  %h1
+    = t('.greeting')
 
   = render 'new', trip: Trip.new
 
