@@ -1,12 +1,10 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trip, only: %i[show edit update destroy]
+  before_action :set_trip, only: %i[edit update destroy]
 
   def index
     @trips = current_user.trips.order_by_created_at
   end
-
-  def show; end
 
   def new
     @trip = current_user.trips.build
