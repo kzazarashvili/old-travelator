@@ -37,5 +37,7 @@ class Trip < ApplicationRecord
     return if ended_at >= started_at
 
     errors.add(:ended_at, 'cannot be before the start date')
+  rescue ArgumentError
+    errors.add(:ended_at, 'cannot be before the start date')
   end
 end

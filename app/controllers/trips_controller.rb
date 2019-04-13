@@ -6,10 +6,6 @@ class TripsController < ApplicationController
     @trips = current_user.trips.order_by_created_at
   end
 
-  def new
-    @trip = current_user.trips.build
-  end
-
   def create
     @trip = current_user.trips.build(trip_params)
 
@@ -40,6 +36,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
+    
     respond_to do |format|
       format.html { redirect_to trips_path }
       format.js
