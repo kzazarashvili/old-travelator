@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :set_trip, only: %i[edit update destroy]
 
@@ -36,7 +37,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to trips_path }
       format.js
