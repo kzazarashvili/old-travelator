@@ -20,6 +20,7 @@
 //= require_tree .
 
 $(document).ready(function(){
+  $('.alert').fadeOut(2500);
   window.setupDatePicker('#new_trip');
 });
 
