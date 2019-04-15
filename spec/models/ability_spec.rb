@@ -25,7 +25,4 @@ RSpec.describe Ability do
       it { should have_abilities :read, trip }
     end
   end
-
-
-
 end

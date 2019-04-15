@@ -13,5 +13,4 @@ RSpec.describe User, type: :model do
   describe '.from_omniauth' do
     pending
   end
-
 end

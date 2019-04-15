@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-      user ||= User.new # guest user (not logged in)
+      user ||= User.new 
 
       can :manage, Trip, user_id: user.id
       can :read, :all
