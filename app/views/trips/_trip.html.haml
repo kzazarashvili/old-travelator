@@ -1,10 +1,10 @@
 .d-flex[trip]
   .p-2
     %label= t('.label.started_at')
-    %span= trip.started_at&.strftime('%B %d, %Y')
+    %span= formated_date(trip.started_at)
   .p-2
     %label= t('.label.ended_at')
-    %span= trip.ended_at&.strftime('%B %d, %Y')
+    %span= formated_date(trip.ended_at)
   .p-2
     %label= t('.label.duration')
     %span= trip.duration

@@ -20,7 +20,8 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('.alert').fadeOut(2500);
+  hideAlert();
+
   window.setupDatePicker('#new_trip');
 });
 
@@ -34,3 +35,7 @@ window.setupDatePicker = function(id) {
     },
   });
 };
+
+function hideAlert() {
+  $('.alert').fadeOut(2500);
+}

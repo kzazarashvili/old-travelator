@@ -9,6 +9,7 @@ class Trip < ApplicationRecord
   default_scope { where(past: false) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
 
+
   private
 
   def calculate_and_set_duration_and_past
@@ -36,8 +37,8 @@ class Trip < ApplicationRecord
     return if ended_at.blank?
     return if ended_at >= started_at
 
-    errors.add(:ended_at, 'cannot be before the start date')
+    errors.add(:ended_at, I18n.t('model-trip.end-in-past-error'))
   rescue ArgumentError
-    errors.add(:ended_at, 'cannot be before the start date')
+    errors.add(:ended_at, I18n.t('model-trip.end-in-past-error'))
   end
 end

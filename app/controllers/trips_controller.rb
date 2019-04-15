@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trip, only: %i[edit update destroy]
 
   load_and_authorize_resource :trip
 

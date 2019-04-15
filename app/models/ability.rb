@@ -5,6 +5,5 @@ class Ability
     user ||= User.new
 
     can :manage, Trip, user_id: user.id
-    can :read, :all
   end
 end
