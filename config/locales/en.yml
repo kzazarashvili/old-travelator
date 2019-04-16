@@ -30,8 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  model-trip:
-    end-in-past-error: cannot be before the start date
   devise:
     confirmations:
       new:
@@ -137,6 +135,8 @@ en:
       log-in: Log in
       log-out: Log out
   trips:
+    errors:
+      ended_at: cannot be before the start date
     form:
       submit: Create trip
       placeholder:

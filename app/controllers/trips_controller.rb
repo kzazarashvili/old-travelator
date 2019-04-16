@@ -46,10 +46,6 @@ class TripsController < ApplicationController
 
   private
 
-  def set_trip
-    @trip = Trip.find(params[:id])
-  end
-
   def trip_params
     params.require(:trip).permit(:started_at, :ended_at)
   end
