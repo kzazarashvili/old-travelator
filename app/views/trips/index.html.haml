@@ -1,0 +1,10 @@
+.container
+  %h1
+    = t('.greeting')
+
+  = render 'new', trip: Trip.new
+
+  %hr
+
+.container#trips
+  = render @trips

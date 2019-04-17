@@ -1,0 +1,13 @@
+.d-flex[trip]
+  .p-2
+    %label= t('.label.started_at')
+    %span= formated_date(trip.started_at)
+  .p-2
+    %label= t('.label.ended_at')
+    %span= formated_date(trip.ended_at)
+  .p-2
+    %label= t('.label.duration')
+    %span= trip.duration
+  .ml-auto.p-2
+    = link_to t('.button.delete'), trip, remote: true, method: :delete, data: { confirm: t('.delete-confirm') }, class: 'btn btn-danger'
+    = link_to t('.button.edit'), edit_trip_path(trip) , remote: true, class: 'btn btn-primary'

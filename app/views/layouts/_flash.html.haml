@@ -1,0 +1,4 @@
+- flash.each do |name, msg|
+  - if name.to_sym == :alert
+    .alert.alert-info{role: 'alert'}
+      = msg

@@ -134,3 +134,22 @@ en:
     index:
       log-in: Log in
       log-out: Log out
+  trips:
+    errors:
+      ended_at: cannot be before the start date
+    form:
+      submit: Create trip
+      placeholder:
+        started_at: Start date
+        ended_at: End date
+    trip:
+      delete-confirm: Are you sure that you wanna delete this trip?
+      label:
+        started_at: 'Start date:'
+        ended_at: 'End date:'
+        duration: 'Duration:'
+      button:
+        delete: Delete trip
+        edit: Edit
+    index:
+      greeting: Hello, create here your trip.
