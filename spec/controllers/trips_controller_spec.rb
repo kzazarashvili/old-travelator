@@ -80,7 +80,6 @@ RSpec.describe TripsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-
     it 'destroys the requested trip' do
       expect {
         delete :destroy, xhr: true, format: :js, params: { id: trip.to_param }
