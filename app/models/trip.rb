@@ -1,6 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
-  has_many :visited_countries
+  has_many :visited_countries, dependent: :destroy
   has_many :countries, through: :visited_countries
 
   validates :started_at, presence: true

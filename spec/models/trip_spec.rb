@@ -8,6 +8,8 @@ RSpec.describe Trip, type: :model do
 
   describe 'association' do
     it { should belong_to :user }
+    it { should have_many :visited_countries }
+    it { should have_many(:countries).through(:visited_countries) }
   end
 
   describe 'validations' do
