@@ -7,7 +7,9 @@ RSpec.describe Trip, type: :model do
   end
 
   describe 'association' do
-    it { should belong_to :user }
+    it { should belong_to(:user) }
+    it { should have_many(:visited_countries).dependent(:destroy) }
+    it { should have_many(:countries).through(:visited_countries) }
   end
 
   describe 'validations' do
