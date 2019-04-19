@@ -1,5 +1,10 @@
 = simple_form_for trip, remote: true, html: { class: 'form-inline d-flex' } do |f|
   .p-2
+  = f.association :countries, collection: Country.all, input_html: {class: 'country-selcect2'}
+  -# = f.simple_fields_for:countries do |country|
+  -#   -# = trip.association :countries, input_html: {class: 'country-selcect2'}
+  -#   = country.association :trip, :as => :select
+  .p-2
     %i.fa.fa-calendar
   .p-2
     = f.input :started_at, placeholder: t('.placeholder.started_at'), label: false , as: :string, readonly: true

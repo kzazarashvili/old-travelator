@@ -17,14 +17,20 @@
 //= require popper
 //= require bootstrap
 //= require flatpickr
-//= require select2-full
+//= require select2
 //= require_tree .
 
 $(document).ready(function(){
   hideAlert();
 
+  $('.country-selcect2').select2({
+    multiple: true,
+
+  });
+
   window.setupDatePicker('#new_trip');
 });
+
 
 window.setupDatePicker = function(id) {
   $(id + ' .fa-calendar').flatpickr({

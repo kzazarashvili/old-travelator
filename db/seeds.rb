@@ -6,10 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-country = Country.create([{ name: 'Poland' }])
-country1 = Country.create([{ name: 'Germany' }])
-country2 = Country.create([{ name: 'Italy' }])
-country3 = Country.create([{ name: 'Netherlands' }])
-country4 = Country.create([{ name: 'Spain' }])
-country5 = Country.create([{ name: 'Potugal' }])
-country6 = Country.create([{ name: 'France' }])
+%w[poland germany italy netherlands spain portugal france].each do |country|
+  Country.create(name: country.capitalize)
+end
