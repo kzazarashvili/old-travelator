@@ -17,6 +17,7 @@
 //= require popper
 //= require bootstrap
 //= require flatpickr
+//= require select2-full
 //= require_tree .
 
 $(document).ready(function(){
