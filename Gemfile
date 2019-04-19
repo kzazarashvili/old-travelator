@@ -19,11 +19,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'rubocop', '~> 0.66.0', require: false
 gem 'sass-rails', '~> 5.0'
-# gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
-# gem 'select2_simple_form', github: 'lndl/select2_simple_form', tag: '0.7.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

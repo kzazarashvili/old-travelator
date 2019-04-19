@@ -23,14 +23,10 @@
 $(document).ready(function(){
   hideAlert();
 
-  $('.country-selcect2').select2({
-    multiple: true,
-
-  });
+  window.setSlect2('#new_trip');
 
   window.setupDatePicker('#new_trip');
 });
-
 
 window.setupDatePicker = function(id) {
   $(id + ' .fa-calendar').flatpickr({
@@ -40,6 +36,15 @@ window.setupDatePicker = function(id) {
       $(id + ' #trip_started_at').val(dates[0]);
       $(id + ' #trip_ended_at').val(dates[1]);
     },
+  });
+};
+
+window.setSlect2 = function(id) {
+  $(id + ' .country-selcect2').select2({
+    multiple: true,
+    placeholder: 'Choose countries',
+    width: 227,
+    allowClear: true,
   });
 };
 
