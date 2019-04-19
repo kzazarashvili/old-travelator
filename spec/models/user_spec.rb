@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many :trips }
+    it { should have_many(:trips).dependent(:destroy) }
   end
 
   describe '.from_omniauth' do
