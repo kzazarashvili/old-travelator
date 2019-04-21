@@ -17,13 +17,14 @@
 //= require popper
 //= require bootstrap
 //= require flatpickr
-//= require select2
+//= require chosen-jquery
+//= require scaffold
 //= require_tree .
 
 $(document).ready(function(){
   hideAlert();
 
-  window.setSlect2('#new_trip');
+  window.setChosen('#new_trip');
 
   window.setupDatePicker('#new_trip');
 });
@@ -39,8 +40,8 @@ window.setupDatePicker = function(id) {
   });
 };
 
-window.setSlect2 = function(id) {
-  $(id + ' .country-selcect2').select2({
+window.setChosen = function(id) {
+  $(id + ' .country-chosen').chosen({
     multiple: true,
     placeholder: 'Choose countries',
     width: 227,

@@ -1,6 +1,6 @@
 $('#trip_<%= @trip.id %>').replaceWith("<%= j render 'edit', trip: @trip %>");
 
 $(document).ready(function(){
-  window.setSlect2('#edit_trip_<%= @trip.id %>')
+  window.setChosen('#edit_trip_<%= @trip.id %>')
   window.setupDatePicker('#edit_trip_<%= @trip.id %>');
 });

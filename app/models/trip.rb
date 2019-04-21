@@ -11,6 +11,10 @@ class Trip < ApplicationRecord
   default_scope { where(past: false) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
 
+  def country_names
+    countries.pluck(:name).join(", ")
+  end
+
   private
 
   def calculate_and_set_duration_and_past
