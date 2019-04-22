@@ -10,8 +10,30 @@ class Trip < ApplicationRecord
 
   default_scope { where(past: false) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
+  scope :past_trip, -> { where(past: true) }
+
+  def self.over_limit
+    calculate_avaible_number_of_days < 0
+  end
+
+  def self.in_limit
+    calculate_avaible_number_of_days >= 0
+  end
+
+  def self.calculate_avaible_number_of_days
+    90 - calculate_days_away
+  end
+
+  def self.calculate_duration_off_all_trips
+    past_trip.sum(:duration)
+  end
 
   private
+
+
+  def self.calculate_days_away
+    sum(:duration)
+  end
 
   def calculate_and_set_duration_and_past
     self.duration = calculate_duration

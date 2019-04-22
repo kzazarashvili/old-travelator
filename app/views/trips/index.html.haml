@@ -8,3 +8,10 @@
 
 .container#trips
   = render @trips
+
+- if @trips.in_limit
+  = "You can still use #{@trips.calculate_avaible_number_of_days}"
+- else
+  = "You are over limit of day by #{@trips.calculate_avaible_number_of_days}"
+
+= @trips.unscoped.calculate_duration_off_all_trips
