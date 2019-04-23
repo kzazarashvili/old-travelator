@@ -23,6 +23,7 @@
 
 $(document).ready(function(){
   hideAlert();
+  SetUpChosen();
 
   window.setChosen('#new_trip');
 
@@ -51,4 +52,12 @@ window.setChosen = function(id) {
 
 function hideAlert() {
   $('.alert').fadeOut(2500);
-}
+};
+
+function SetUpChosen() {
+  $('.chosen-select').chosen({
+  allow_single_deselect: true,
+  no_results_text: 'No results matched',
+  width: '100%'
+  })
+};
