@@ -11,9 +11,7 @@ class Trip < ApplicationRecord
   default_scope { where(past: false) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
 
-  def country_names
-    countries.pluck(:name).join(', ')
-  end
+  delegate :names, to: :countries, prefix: :country
 
   private
 
