@@ -1,6 +1,6 @@
 = simple_form_for trip, remote: true, html: { class: 'form-inline d-flex' } do |f|
   .p-2
-  = f.association :countries, collection: Country.all, label: false, input_html: { class: 'country-chosen',  data: { placeholder: t('.placeholder.countries') } }
+    = f.association :countries, collection: Country.all, label: false, input_html: { class: 'country-chosen',  data: { placeholder: t('.placeholder.countries') } }
   .p-2
     %i.fa.fa-calendar
   .p-2
