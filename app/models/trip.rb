@@ -12,7 +12,7 @@ class Trip < ApplicationRecord
   scope :order_by_created_at, -> { order(created_at: :desc) }
 
   def country_names
-    countries.pluck(:name).join(", ")
+    countries.pluck(:name).join(', ')
   end
 
   private
@@ -27,7 +27,7 @@ class Trip < ApplicationRecord
   end
 
   def calculate_past
-    ended_at < (Date.today - 180)
+    ended_at < (Time.zone.today - 180)
   end
 
   def calculate_duration
