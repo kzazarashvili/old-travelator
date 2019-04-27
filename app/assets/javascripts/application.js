@@ -18,7 +18,6 @@
 //= require bootstrap
 //= require flatpickr
 //= require chosen-jquery
-//= require scaffold
 //= require_tree .
 
 $(document).ready(function(){
