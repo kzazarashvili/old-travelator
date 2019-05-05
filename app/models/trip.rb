@@ -8,18 +8,10 @@ class Trip < ApplicationRecord
 
   before_save :calculate_and_set_duration_and_past, if: :ending_date_known?
 
-  scope :only_active, -> { where(past: false) }
+  scope :only_active, -> { where(past: false).where('ended_at >= ?', Time.zone.today - 180 + 1) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
 
   delegate :names, to: :countries, prefix: :country
-
-  def self.over_limit?
-    calculate_avaible_number_of_days.negative?
-  end
-
-  def self.calculate_avaible_number_of_days
-    90 - calculate_days_away
-  end
 
   def breakpoint
     Time.zone.today - 180 + 1
@@ -37,13 +29,11 @@ class Trip < ApplicationRecord
     (ended_at - breakpoint).to_i + 1
   end
 
-  private
-
-  class << self
-    def calculate_days_away
-      only_active.sum(:duration)
-    end
+  def counted_duration
+    within_breakpoint? ? after_breakpoint : duration
   end
+
+  private
 
   def calculate_and_set_duration_and_past
     self.duration = calculate_duration
