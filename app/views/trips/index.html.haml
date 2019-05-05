@@ -14,4 +14,4 @@
 - else
   = "You are over limit of day by #{@trips.calculate_avaible_number_of_days}"
 
-= @trips.unscoped.calculate_duration_off_all_trips
+= @trips.calculate_duration_off_all_trips

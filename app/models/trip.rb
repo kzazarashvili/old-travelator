@@ -13,7 +13,7 @@ class Trip < ApplicationRecord
   scope :past_trip, -> { where(past: true) }
 
   def self.over_limit
-    calculate_avaible_number_of_days < 0
+    calculate_avaible_number_of_days.negative?
   end
 
   def self.in_limit
@@ -32,9 +32,10 @@ class Trip < ApplicationRecord
 
   private
 
-
-  def self.calculate_days_away
-    sum(:duration)
+  class << self
+    def calculate_days_away
+      only_active.sum(:duration)
+    end
   end
 
   def calculate_and_set_duration_and_past
