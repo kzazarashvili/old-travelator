@@ -8,6 +8,8 @@
   .p-2
     %label= t('.label.duration')
     %span= trip.duration
+  .p-2.font-italic
+    = "( #{trip.country_names} )"
   .ml-auto.p-2
     = link_to t('.button.delete'), trip, remote: true, method: :delete, data: { confirm: t('.delete-confirm') }, class: 'btn btn-danger'
     = link_to t('.button.edit'), edit_trip_path(trip) , remote: true, class: 'btn btn-primary'

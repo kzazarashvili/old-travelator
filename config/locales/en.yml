@@ -140,6 +140,7 @@ en:
     form:
       submit: Create trip
       placeholder:
+        countries: Select Countries
         started_at: Start date
         ended_at: End date
     trip:

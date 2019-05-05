@@ -11,6 +11,8 @@ class Trip < ApplicationRecord
   default_scope { where(past: false) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
 
+  delegate :names, to: :countries, prefix: :country
+
   private
 
   def calculate_and_set_duration_and_past
@@ -23,7 +25,7 @@ class Trip < ApplicationRecord
   end
 
   def calculate_past
-    ended_at < (Date.today - 180)
+    ended_at < (Time.zone.today - 180)
   end
 
   def calculate_duration

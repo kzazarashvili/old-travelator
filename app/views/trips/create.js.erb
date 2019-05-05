@@ -1,3 +1,4 @@
 $('#trips').prepend("<%= j render 'trip', trip: @trip %>")
 $('#trip_started_at').val('')
 $('#trip_ended_at').val('')
+$('#new_trip .country-chosen').val('').trigger("chosen:updated")
