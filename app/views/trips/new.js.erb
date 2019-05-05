@@ -2,4 +2,5 @@ $('#new_trip').replaceWith("<%= j render 'new', trip: @trip %>")
 
 $(document).ready(function(){
   window.setupDatePicker('#new_trip');
+  window.setupCountriesSelect();
 });

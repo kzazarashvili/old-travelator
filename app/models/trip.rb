@@ -8,7 +8,7 @@ class Trip < ApplicationRecord
 
   before_save :calculate_and_set_duration_and_past, if: :ending_date_known?
 
-  default_scope { where(past: false) }
+  scope :only_active, -> { where(past: false) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
   scope :past_trip, -> { where(past: true) }
 
@@ -28,6 +28,8 @@ class Trip < ApplicationRecord
     past_trip.sum(:duration)
   end
 
+  delegate :names, to: :countries, prefix: :country
+
   private
 
 
@@ -45,7 +47,7 @@ class Trip < ApplicationRecord
   end
 
   def calculate_past
-    ended_at < (Date.today - 180)
+    ended_at < (Time.zone.today - 180)
   end
 
   def calculate_duration

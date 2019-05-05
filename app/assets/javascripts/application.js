@@ -17,11 +17,13 @@
 //= require popper
 //= require bootstrap
 //= require flatpickr
+//= require chosen-jquery
 //= require_tree .
 
 $(document).ready(function(){
   hideAlert();
 
+  window.setupCountriesSelect();
   window.setupDatePicker('#new_trip');
 });
 
@@ -36,6 +38,15 @@ window.setupDatePicker = function(id) {
   });
 };
 
+window.setupCountriesSelect = function() {
+  $('.country-chosen').chosen({
+    multiple: true,
+    width: 227,
+    allowClear: true,
+    no_results_text: 'No results matched'
+  });
+};
+
 function hideAlert() {
   $('.alert').fadeOut(2500);
-}
+};
