@@ -21,6 +21,22 @@ class Trip < ApplicationRecord
     90 - calculate_days_away
   end
 
+  def breakpoint
+    Time.zone.today - 180 + 1
+  end
+
+  def within_breakpoint?
+    started_at < breakpoint && ended_at >= breakpoint
+  end
+
+  def before_breakpoint
+    (breakpoint - started_at).to_i
+  end
+
+  def after_breakpoint
+    (ended_at - breakpoint).to_i + 1
+  end
+
   private
 
   class << self
@@ -39,11 +55,11 @@ class Trip < ApplicationRecord
   end
 
   def calculate_past
-    ended_at < (Time.zone.today - 180)
+    ended_at < breakpoint
   end
 
   def calculate_duration
-    same_day? ? 1 : (ended_at - started_at).to_i
+    same_day? ? 1 : ((ended_at - started_at).to_i + 1)
   end
 
   def same_day?
