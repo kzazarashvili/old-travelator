@@ -10,25 +10,16 @@ class Trip < ApplicationRecord
 
   scope :only_active, -> { where(past: false) }
   scope :order_by_created_at, -> { order(created_at: :desc) }
-  scope :past_trip, -> { where(past: true) }
 
-  def self.over_limit
+  delegate :names, to: :countries, prefix: :country
+
+  def self.over_limit?
     calculate_avaible_number_of_days.negative?
-  end
-
-  def self.in_limit
-    calculate_avaible_number_of_days >= 0
   end
 
   def self.calculate_avaible_number_of_days
     90 - calculate_days_away
   end
-
-  def self.calculate_duration_off_all_trips
-    past_trip.sum(:duration)
-  end
-
-  delegate :names, to: :countries, prefix: :country
 
   private
 
