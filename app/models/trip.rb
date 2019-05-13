@@ -31,7 +31,7 @@ class Trip < ApplicationRecord
 
   private
 
-  def calculate_and_set_duration_and_past(breakpoint = Time.zone.today - 180 + 1)
+  def calculate_and_set_duration_and_past
     self.duration = calculate_duration
     self.active_duration = after_breakpoint
     self.past_duration = before_breakpoint
