@@ -29,6 +29,10 @@ class Trip < ApplicationRecord
     within_breakpoint?(breakpoint) ? after_breakpoint : duration
   end
 
+  def calculate_past(breakpoint = Time.zone.today - 180 + 1)
+    ended_at < breakpoint
+  end
+
   private
 
   def calculate_and_set_duration_and_past
@@ -40,10 +44,6 @@ class Trip < ApplicationRecord
 
   def ending_date_known?
     ended_at.present?
-  end
-
-  def calculate_past(breakpoint = Time.zone.today - 180 + 1)
-    ended_at < breakpoint
   end
 
   def calculate_duration
