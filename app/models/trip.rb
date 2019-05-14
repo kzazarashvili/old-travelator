@@ -4,14 +4,37 @@ class Trip < ApplicationRecord
   has_many :countries, through: :visited_countries
 
   validates :started_at, presence: true
-  validate :ended_at_being_in_past
+  validate :ended_at_being_in_past, :calendar
 
   before_save :calculate_and_set_duration_and_past, if: :ending_date_known?
 
   scope :only_active, ->(breakpoint) { where(past: false).where('ended_at >= ?', breakpoint) }
   scope :order_by_started_at, -> { order(started_at: :desc) }
+  scope :persisted, -> { where("id IS NOT NULL") }
 
   delegate :names, to: :countries, prefix: :country
+
+  def calendar
+    trips = user.trips.persisted
+
+    dates = trips.map do |trip|
+      start_date = trip.started_at
+      end_date = trip.ended_at
+
+      (start_date..end_date).to_a
+    end
+
+    used_dates = dates.flatten
+
+
+    if used_dates.include?(started_at)
+      errors.add(:started_at, "Dates are in use")
+    end
+
+    if used_dates.include?(ended_at)
+      errors.add(:ended_at, "Dates are in use")
+    end
+  end
 
   def within_breakpoint?(breakpoint = Time.zone.today - 180 + 1)
     started_at < breakpoint && ended_at >= breakpoint
