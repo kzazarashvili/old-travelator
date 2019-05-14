@@ -1,4 +1,4 @@
-.d-flex[trip]
+.d-flex[trip]{ class: trip.past ? 'not-active-trips' : 'active-trips' }
   .p-2
     %label= t('.label.started_at')
     %span= formated_date(trip.started_at)
@@ -9,7 +9,11 @@
     %label= t('.label.duration')
     %span= trip.duration
     - if trip.within_breakpoint?
-      (before: #{trip.before_breakpoint} / after: #{trip.after_breakpoint})
+      (
+      %span.not-active-trips invalid days: #{trip.before_breakpoint}
+      = "/"
+      %span.active-trips valid days: #{trip.after_breakpoint}
+      )
   .p-2.font-italic
     = "( #{trip.country_names} )"
   .ml-auto.p-2
