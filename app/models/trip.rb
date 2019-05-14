@@ -9,7 +9,7 @@ class Trip < ApplicationRecord
   before_save :calculate_and_set_duration_and_past, if: :ending_date_known?
 
   scope :only_active, ->(breakpoint) { where(past: false).where('ended_at >= ?', breakpoint) }
-  scope :order_by_created_at, -> { order(created_at: :desc) }
+  scope :order_by_started_at, -> { order(started_at: :desc) }
 
   delegate :names, to: :countries, prefix: :country
 

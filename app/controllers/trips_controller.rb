@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   load_and_authorize_resource :trip
 
   def index
-    @trips = current_user.trips.order_by_created_at
+    @trips = current_user.trips.order_by_started_at
   end
 
   def create
