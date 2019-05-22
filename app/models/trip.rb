@@ -44,14 +44,19 @@ class Trip < ApplicationRecord
   end
 
   def existing_trips
-    user.trips.persisted
+    arr = user&.trips&.persisted || []
+    arr - [self]
   end
 
   def taken_dates
     existing_trips.map do |trip|
       start_date = trip.started_at
       end_date = trip.ended_at
-      (start_date...end_date).to_a
+      if end_date.blank?
+        [start_date]
+      else
+        (start_date...end_date).to_a
+      end
     end
   end
 
@@ -70,6 +75,7 @@ class Trip < ApplicationRecord
   end
 
   def already_taken_dates
+
     errors.add(:started_at, 'Dates are in use') if
     shared_date.any? || range_of_already_taken_dates.include?(started_at)
 

@@ -1,4 +1,4 @@
-$('#trip_<%= @trip.id %>').replaceWith("<%= j render 'edit', trip: @trip %>");
+$('#trip_<%= @trip.id %>').html("<%= j render 'edit', trip: @trip %>");
 
 $(document).ready(function(){
   window.setupCountriesSelect()

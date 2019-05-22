@@ -4,7 +4,7 @@ RSpec.describe TripsController, type: :controller do
   let!(:user) { create(:user) }
   let!(:trip) { create(:trip, user: user) }
 
-  let!(:valid_attributes) { attributes_for(:trip) }
+  let!(:valid_attributes) { attributes_for(:trip, :valid) }
   let!(:invalid_attributes) { attributes_for(:trip, :invalid) }
 
   before(:each) { sign_in(user) }

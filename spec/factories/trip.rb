@@ -4,6 +4,11 @@ FactoryBot.define do
     started_at { Date.today - 10 }
     ended_at { Date.today - 7 }
 
+    trait :valid do
+      started_at { Date.today - 6 }
+      ended_at { Date.today - 2 }
+    end
+
     trait :invalid do
       started_at { nil }
     end

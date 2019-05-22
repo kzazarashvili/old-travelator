@@ -12,6 +12,7 @@ class TripsController < ApplicationController
     @trip = current_user.trips.build(trip_params)
 
     respond_to do |format|
+      # binding.pry
       if @trip.save
         format.html { redirect_to @trip }
         format.js
@@ -26,6 +27,7 @@ class TripsController < ApplicationController
 
   def update
     respond_to do |format|
+      # binding.pry
       if @trip.update(trip_params)
         format.html { redirect_to @trip }
         format.js
