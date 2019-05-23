@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe TripsController, type: :controller do
   let!(:user) { create(:user) }
   let!(:trip) { create(:trip, user: user) }
-
   let!(:valid_attributes) { attributes_for(:trip, :valid) }
   let!(:invalid_attributes) { attributes_for(:trip, :invalid) }
 

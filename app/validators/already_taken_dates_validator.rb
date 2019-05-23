@@ -1,6 +1,6 @@
 class AlreadyTakenDatesValidator < ActiveModel::Validator
   def validate(record)
-    if (shared_date(record).any? || range_of_previous_trips(record).include?(record.started_at))
+    if shared_date(record).any? || range_of_previous_trips(record).include?(record.started_at)
       record.errors.add(:started_at, 'Dates are in use')
     end
 
@@ -20,7 +20,7 @@ class AlreadyTakenDatesValidator < ActiveModel::Validator
   end
 
   def new_trip_date_range(record)
-    return [] if (record.started_at.blank? || record.ended_at.blank?)
+    return [] if record.started_at.blank? || record.ended_at.blank?
 
     (record.started_at...record.ended_at).to_a
   end
