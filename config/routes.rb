@@ -3,4 +3,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :trips
+
+  authenticate :user, lambda { |u| u.admin? } do
+
+    get '/admin', to: 'admin/countries#index'
+
+    namespace :admin do
+      resources :countries
+    end
+  end
 end
