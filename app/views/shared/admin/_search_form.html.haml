@@ -1,0 +1,4 @@
+= form_tag [:admin, resource], method: 'get' do
+  .d-flex
+    = text_field_tag :query, params[:query], class: 'p-2 flex-grow-1'
+    = submit_tag 'Search', name: nil, class: 'btn btn-primary p-2 flex-shrink-1'

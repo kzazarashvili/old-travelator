@@ -2,6 +2,9 @@
 
 = link_to 'New country', new_admin_country_path, class: 'btn btn-primary'
 
+.col-md-12
+  = render 'shared/admin/search_form', resource: :countries
+
 - @countries.each do |country|
   .p-2= country.name
   .ml-auto.p-2

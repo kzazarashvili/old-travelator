@@ -1,10 +1,16 @@
 module Admin
   class CountriesController < BaseController
+
+    SEARCH_ATTRIBUTES = [
+      { name: 'countries.id', method: :exact, type: :integer },
+      { name: 'countries.name', method: :like }
+    ]
+
     before_action :authenticate_user!
     before_action :set_country, only: %i[show edit update destroy]
 
     def index
-      @countries = Country.all
+      @countries = search(Country.all)
       @country = Country.new
     end
 
