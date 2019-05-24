@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}
+    %title Travels
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light.d-flex
+      .mr-auto.p-2
+        %span= link_to 'Admin Panel', admin_countries_path
+      .p-2
+        %span= link_to 'Countries', admin_countries_path, class: 'btn btn-info'
+      .p-2
+        %span= link_to 'Users', admin_users_path, class: 'btn btn-info'
+      .p-2
+        %span= "Your email: #{current_user.email}"
+      .p-2
+        - if  user_signed_in?
+          = link_to t('.log-out'), destroy_user_session_path, method: :delete
+        - else
+          = link_to t('.log-in'), new_user_session_path
+    = yield

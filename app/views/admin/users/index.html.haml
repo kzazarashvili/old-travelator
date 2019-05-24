@@ -1,0 +1,17 @@
+%h1 This is index page for user
+
+- @users.each do |user|
+  .p-2
+  %label= user.name
+  .p-2
+    %label= 'User id is:'
+    %span= user.id
+  .p-2
+    %label= 'User email: '
+    %span= user.email
+  .p-2
+    %label= 'User email: '
+    %span= user.admin
+  .p-2
+    = link_to 'Change Admin', [:edit, :admin, user]
+  %hr

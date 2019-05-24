@@ -1,0 +1,5 @@
+%h1 This is edit page for users
+
+= simple_form_for [:admin, @user] do |f|
+  = f.input_field :admin, as: :boolean
+  = f.submit

@@ -1,5 +1,5 @@
 module Admin
-  class CountriesController < ApplicationController
+  class CountriesController < BaseController
     before_action :authenticate_user!
     before_action :set_country, only: %i[show edit update destroy]
 
