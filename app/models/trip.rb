@@ -1,5 +1,4 @@
 class Trip < ApplicationRecord
-  include ActiveModel::Validations
   belongs_to :user
   has_many :visited_countries, dependent: :destroy
   has_many :countries, through: :visited_countries
