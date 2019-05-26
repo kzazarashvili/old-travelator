@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}
+    %title Travels
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
+
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        %a.navbar-brand{ href: '#' } Travelator
+        .navbar-collapse
+          %ul.navbar-nav
+            %li.nav-item
+              = link_to 'Countries', [:admin, :countries], class: 'nav-link'
+            %li.nav-item
+              = link_to 'Users', [:admin, :users], class: 'nav-link'
+        %ul.navbar-nav
+          %li.nav-item
+            = link_to 'Logout', destroy_user_session_path, method: :delete
+
+    .container-fluid
+      = render 'shared/flash_messages'
+      .container
+        = yield

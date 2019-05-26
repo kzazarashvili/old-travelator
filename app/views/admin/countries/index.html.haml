@@ -1,0 +1,21 @@
+#heading-container
+  .d-flex.flex-row.justify-content-between
+    %h1 Countries
+    = link_to 'New Country', new_admin_country_path, class: 'btn btn-primary align-self-center'
+
+  = render 'admin/components/search', model_name: :countries
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th= order_by_link 'Id'
+      %th= order_by_link 'Name'
+      %th
+
+  %tbody
+    - @countries.each do |country|
+      %tr
+        %td= link_to country.id, [:admin, country]
+        %td= country.name
+        %td.text-right
+          = render 'admin/components/view_edit_delete', object: country

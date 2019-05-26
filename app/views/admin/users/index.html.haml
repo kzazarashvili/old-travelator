@@ -1,0 +1,25 @@
+#heading-container
+  .d-flex.flex-row.justify-content-between
+    %h1 Users
+    = link_to 'New User', new_admin_country_path, class: 'btn btn-primary align-self-center'
+
+  = render 'admin/components/search', model_name: :users
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th= order_by_link 'Id'
+      %th= order_by_link 'Name'
+      %th= order_by_link 'Email'
+      %th= order_by_link 'Admin'
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.id, [:admin, user]
+        %td= user.name
+        %td= user.email
+        %td= user.admin
+        %td.text-right
+          = render 'admin/components/view_edit_delete', object: user

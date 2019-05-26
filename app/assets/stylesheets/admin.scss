@@ -1,0 +1,14 @@
+@import 'bootstrap';
+@import 'font-awesome';
+
+#heading-container {
+  margin: 20px 0;
+}
+
+table thead i {
+  &.fa-sort,
+  &.fa-sort-asc,
+  &.fa-sort-desc {
+    padding-left: 5px;
+  }
+}
