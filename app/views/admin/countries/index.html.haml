@@ -1,14 +1,21 @@
-%h1 This is index countries page for admin
+#heading-container
+  .d-flex.flex-row.justify-content-between
+    %h1 Countries
+    = link_to 'New Country', new_admin_country_path, class: 'btn btn-primary align-self-center'
 
-= link_to 'New country', new_admin_country_path, class: 'btn btn-primary'
+  = render 'admin/components/search', model_name: :countries
 
-.col-md-12
-  = render 'shared/admin/search_form', resource: :countries
+%table.table.table-hover
+  %thead
+    %tr
+      %th= order_by_link 'Id'
+      %th= order_by_link 'Name'
+      %th
 
-- @countries.each do |country|
-  .p-2= country.name
-  .ml-auto.p-2
-    = link_to 'Edit', [:edit, :admin, country], class: 'btn btn-primary'
-    = link_to 'Delete', [:admin, country], method: :delete,
-                                data: { confirm: 'Are you sure, that you wanna delete this country' }, class: 'btn btn-danger'
-    = link_to 'Show page', [:admin, country], class: 'btn btn-info'
+  %tbody
+    - @countries.each do |country|
+      %tr
+        %td= link_to country.id, [:admin, country]
+        %td= country.name
+        %td.text-right
+          = render 'admin/components/view_edit_delete', object: country

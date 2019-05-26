@@ -1,0 +1,7 @@
+- flash.each do |type, message|
+  - next if type == :timout
+  .alert.fade.in{class: bootstrap_class_for(type)}
+    %button.close{data: { dismiss: 'alert' } } ×
+    = message.html_safe
+
+- flash.clear

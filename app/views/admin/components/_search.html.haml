@@ -1,0 +1,2 @@
+= form_tag [:admin, model_name], method: 'get' do
+  = text_field_tag :query, params[:query], placeholder: 'Search...', class: 'form-control'

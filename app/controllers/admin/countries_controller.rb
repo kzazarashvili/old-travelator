@@ -5,12 +5,10 @@ module Admin
       { name: 'countries.name', method: :like }
     ]
 
-    before_action :authenticate_user!
     before_action :set_country, only: %i[show edit update destroy]
 
     def index
-      @countries = search(Country.all)
-      @country = Country.new
+      @countries = search(Country.all).order(order_by[:value])
     end
 
     def new
@@ -23,7 +21,7 @@ module Admin
       if @country.save
         redirect_to [:admin, @country]
       else
-        render :new, alert: 'Country could not be saved'
+        render :new
       end
     end
 
@@ -35,7 +33,7 @@ module Admin
       if @country.update(country_params)
         redirect_to [:admin, @country]
       else
-        render :edit, alert: 'Country could not be updated'
+        render :edit
       end
     end
 
