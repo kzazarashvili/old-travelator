@@ -5,6 +5,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = current_user.trips.order_by_started_at
+    @calculator = CalculatorService.new(@trips)
   end
 
   def create

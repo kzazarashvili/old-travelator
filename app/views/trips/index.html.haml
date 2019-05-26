@@ -12,8 +12,8 @@
 .container
   %hr
 
-  - if CalculatorService.new(@trips).over_limit?
-    = "You are over limit!!!"
+  - if @calculator.over_limit?
+    = 'You are over limit!!!'
   - else
-    You already used #{CalculatorService.new(@trips).spent_days} days.
-    You can still use #{CalculatorService.new(@trips).available_days} days.
+    You already used #{@calculator.spent_days} days.
+    You can still use #{@calculator.available_days} days.
