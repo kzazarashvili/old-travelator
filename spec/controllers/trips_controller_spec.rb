@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe TripsController, type: :controller do
   let!(:user) { create(:user) }
   let!(:trip) { create(:trip, user: user) }
-
-  let!(:valid_attributes) { attributes_for(:trip) }
+  let!(:valid_attributes) { attributes_for(:trip, :valid) }
   let!(:invalid_attributes) { attributes_for(:trip, :invalid) }
 
   before(:each) { sign_in(user) }
@@ -27,8 +26,7 @@ RSpec.describe TripsController, type: :controller do
       end
 
       it 'assigns a newly created trip as @trip' do
-        post :create, xhr: true, format: :js, params: { trip: valid_attributes}
-
+        post :create, xhr: true, format: :js, params: { trip: valid_attributes }
         expect(assigns(:trip)).to be_a(Trip)
         expect(assigns(:trip)).to be_persisted
         expect(response).to render_template(:create)
@@ -36,7 +34,7 @@ RSpec.describe TripsController, type: :controller do
     end
 
     context 'with invalid params' do
-      before { post :create, xhr: true, format: :js, params: { trip: invalid_attributes} }
+      before { post :create, xhr: true, format: :js, params: { trip: invalid_attributes } }
 
       it { expect(assigns(:trip)).to be_a(Trip) }
       it { expect(assigns(:trip)).not_to be_persisted }

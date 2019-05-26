@@ -4,12 +4,13 @@ class Trip < ApplicationRecord
   has_many :countries, through: :visited_countries
 
   validates :started_at, presence: true
-  validate :ended_at_being_in_past
+  validates_with EndedAtBeingInPastValidator, AlreadyTakenDatesValidator
 
   before_save :calculate_and_set_duration_and_past, if: :ending_date_known?
 
   scope :only_active, ->(breakpoint) { where(past: false).where('ended_at >= ?', breakpoint) }
   scope :order_by_started_at, -> { order(started_at: :desc) }
+  scope :persisted, -> { where('id IS NOT NULL') }
 
   delegate :names, to: :countries, prefix: :country
 
@@ -52,14 +53,5 @@ class Trip < ApplicationRecord
 
   def same_day?
     ended_at == started_at
-  end
-
-  def ended_at_being_in_past
-    return if ended_at.blank?
-    return if ended_at >= started_at
-
-    errors.add(:ended_at, I18n.t('trips.errors.ended_at'))
-  rescue ArgumentError
-    errors.add(:ended_at, I18n.t('trips.errors.ended_at'))
   end
 end
