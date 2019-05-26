@@ -8,3 +8,12 @@
 
 .container#trips
   = render @trips
+
+.container
+  %hr
+
+  - if @calculator.over_limit?
+    = 'You are over limit!!!'
+  - else
+    You already used #{@calculator.spent_days} days.
+    You can still use #{@calculator.available_days} days.
