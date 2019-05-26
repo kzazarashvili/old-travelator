@@ -1,6 +1,5 @@
 module Admin
   class CountriesController < BaseController
-
     SEARCH_ATTRIBUTES = [
       { name: 'countries.id', method: :exact, type: :integer },
       { name: 'countries.name', method: :like }
