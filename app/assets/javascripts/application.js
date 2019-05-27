@@ -1,15 +1,3 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -26,27 +14,3 @@ $(document).ready(function(){
   window.setupCountriesSelect();
   window.setupDatePicker('#new_trip');
 });
-
-window.setupDatePicker = function(id) {
-  $(id + ' .fa-calendar').flatpickr({
-    mode: "range",
-    onChange: function(selectedDates, dateStr, instance){
-      const dates = selectedDates.map(date => this.formatDate(date, "Y-m-d"));
-      $(id + ' #trip_started_at').val(dates[0]);
-      $(id + ' #trip_ended_at').val(dates[1]);
-    },
-  });
-};
-
-window.setupCountriesSelect = function() {
-  $('.country-chosen').chosen({
-    multiple: true,
-    width: 227,
-    allowClear: true,
-    no_results_text: 'No results matched'
-  });
-};
-
-function hideAlert() {
-  $('.alert').fadeOut(2500);
-};
