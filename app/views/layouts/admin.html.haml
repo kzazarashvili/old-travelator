@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}
-    %title Travels
+    %title Travelator
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
@@ -15,12 +15,12 @@
         .navbar-collapse
           %ul.navbar-nav
             %li.nav-item
-              = link_to 'Countries', [:admin, :countries], class: 'nav-link'
+              = link_to t('.links.countries'), [:admin, :countries], class: 'nav-link'
             %li.nav-item
-              = link_to 'Users', [:admin, :users], class: 'nav-link'
+              = link_to t('.links.users'), [:admin, :users], class: 'nav-link'
         %ul.navbar-nav
           %li.nav-item
-            = link_to 'Logout', destroy_user_session_path, method: :delete
+            = link_to t('.links.logout'), destroy_user_session_path, method: :delete
 
     .container-fluid
       = render 'shared/flash_messages'

@@ -9,7 +9,7 @@
   %hr
 
   - if @calculator.over_limit?
-    = 'You are over limit!!!'
+    = t('.over-limit')
   - else
-    You already used #{@calculator.spent_days} days.
-    You can still use #{@calculator.available_days} days.
+    = t('.message.used', count: @calculator.spent_days)
+    = t('.message.available', count: @calculator.available_days)

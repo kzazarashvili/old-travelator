@@ -30,6 +30,49 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  admin:
+    components:
+      search:
+        placeholder: Search...
+      view_edit_delete:
+        view: View
+        edit: Edit
+        delete: Delete
+        confirm: Are you sure?
+    countries:
+      form:
+        label:
+          country: Country name
+        submit: Save
+      edit:
+        title: Edit country details
+      index:
+        title: Countries
+        create: New Country
+      new:
+        title: Create new country
+      show:
+        title: Country show page
+    users:
+      edit:
+        submit: Edit
+      index:
+        title: Users
+        create: New User
+      show:
+        label:
+          id: 'User id is: '
+          email: 'User email is: '
+          admin: 'Admin is set as: '
+  layouts:
+    admin:
+      links:
+        countries: Countries
+        users: Users
+        logout: Logout
+    application:
+      logout: Log out
+      login: Login
   devise:
     confirmations:
       new:
@@ -137,6 +180,7 @@ en:
   trips:
     errors:
       ended_at: cannot be before the start date
+      dates-in-use: Dates are in use
     form:
       submit: Create trip
       placeholder:
@@ -149,8 +193,14 @@ en:
         started_at: 'Start date:'
         ended_at: 'End date:'
         duration: 'Duration:'
+      invalid: 'invalid days: %{count}'
+      valid: 'valid days: %{count}'
       button:
         delete: Delete trip
         edit: Edit
     index:
       greeting: Hello, create here your trip.
+      over-limit: You are over limit !!!
+      message:
+        used: 'You already used %{count} days /'
+        available: 'You can still use %{count} days'

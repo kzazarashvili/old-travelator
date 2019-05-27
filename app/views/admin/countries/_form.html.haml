@@ -1,3 +1,3 @@
 = simple_form_for [:admin, country] do |f|
-  = f.input :name, label: 'Country name'
-  = f.button :submit, 'save trip', class: 'btn btn-primary'
+  = f.input :name, label: t('.label.country')
+  = f.button :submit, t('.submit'), class: 'btn btn-primary'

@@ -1,13 +1,11 @@
-%h1 This is show page
+%h1= @user.name
 
 .p-2
-%label= @user.name
-.p-2
-  %label= 'User id is:'
+  %label= t('.label.id')
   %span= @user.id
 .p-2
-  %label= 'User email: '
+  %label= t('.label.email')
   %span= @user.email
 .p-2
-  %label= 'User email: '
+  %label= t('.label.admin')
   %span= @user.admin
