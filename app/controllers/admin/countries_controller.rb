@@ -3,12 +3,12 @@ module Admin
     SEARCH_ATTRIBUTES = [
       { name: 'countries.id', method: :exact, type: :integer },
       { name: 'countries.name', method: :like }
-    ]
+    ].freeze
 
     before_action :set_country, only: %i[show edit update destroy]
 
     def index
-      @countries = search(Country.all).order(order_by[:value])
+      @countries = search(Country.all).order(order_by[:value]).page(params[:page])
     end
 
     def new

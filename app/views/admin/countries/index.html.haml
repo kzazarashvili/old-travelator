@@ -19,3 +19,5 @@
         %td= country.name
         %td.text-right
           = render 'admin/components/view_edit_delete', object: country
+
+= paginate @countries

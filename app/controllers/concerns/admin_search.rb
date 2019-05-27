@@ -2,7 +2,7 @@ module AdminSearch
   extend ActiveSupport::Concern
 
   included do
-    SEARCH_ATTRIBUTES = [{ name: 'id', method: :exact, type: :integer }]
+    SEARCH_ATTRIBUTES = [{ name: 'id', method: :exact, type: :integer }].freeze
 
     helper_method :order_by_direction
   end
@@ -25,17 +25,17 @@ module AdminSearch
 
         else
           case attribute[:method]
-            when :like
-              parts << "#{attribute[:name]} ILIKE :like_#{i}"
+          when :like
+            parts << "#{attribute[:name]} ILIKE :like_#{i}"
 
-            when :map
-              parts << "#{attribute[:name]} = #{attribute[:map][keyword]}" if attribute[:map].has_key?(keyword)
-
-            else
-              parts << "#{attribute[:name]} = :exact_#{i}"
+          when :map
+            if attribute[:map].has_key?(keyword)
+              parts << "#{attribute[:name]} = #{attribute[:map][keyword]}"
+            end
+          else
+            parts << "#{attribute[:name]} = :exact_#{i}"
           end
         end
-
       end
 
       model = model.where(parts.join(' OR '), keywords)
@@ -51,14 +51,13 @@ module AdminSearch
   def order_by
     if params[:order] && params[:direction]
       {
-          attribute: params[:order],
-          direction: params[:direction],
-          value: "#{params[:order]} #{params[:direction].upcase}"
+        attribute: params[:order],
+        direction: params[:direction],
+        value: "#{params[:order]} #{params[:direction].upcase}"
       }
 
     else
       { attribute: 'id', direction: 'desc', value: { id: :desc } }
     end
   end
-
 end
