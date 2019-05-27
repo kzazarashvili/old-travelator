@@ -23,3 +23,5 @@
         %td= user.admin
         %td.text-right
           = render 'admin/components/view_edit_delete', object: user
+          
+= paginate @users

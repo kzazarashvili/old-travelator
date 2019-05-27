@@ -7,6 +7,7 @@ gem 'puma', '~> 3.11'
 # general gems
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'bootstrap4-kaminari-views'
 gem 'cancancan', '~> 3.0'
 gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.2'
@@ -16,6 +17,7 @@ gem "font-awesome-rails"
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'rubocop', '~> 0.66.0', require: false

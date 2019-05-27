@@ -4,12 +4,12 @@ module Admin
       { name: 'users.id', method: :exact, type: :integer },
       { name: 'users.name', method: :like },
       { name: 'users.email', method: :like }
-    ]
+    ].freeze
 
     before_action :set_user, only: %i[show edit update]
 
     def index
-      @users = search(User.all_except(current_user)).order(order_by[:value])
+      @users = search(User.all_except(current_user)).order(order_by[:value]).page(params[:page])
     end
 
     def show; end
