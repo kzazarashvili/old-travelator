@@ -1,5 +1,5 @@
-= link_to 'View', [:admin, object]
+= link_to t('.view'), [:admin, object]
 |
-= link_to 'Edit', [:edit, :admin, object]
+= link_to t('.edit'), [:edit, :admin, object]
 |
-= link_to 'Delete', [:admin, object], method: :delete, data: { confirm: 'Are you sure?' }
+= link_to t('.delete'), [:admin, object], method: :delete, data: { confirm: t('.confirm') }

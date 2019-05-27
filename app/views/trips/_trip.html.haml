@@ -10,9 +10,9 @@
     %span= trip.duration
     - if trip.within_breakpoint?
       (
-      %span.not-active-trips invalid days: #{trip.before_breakpoint}
+      %span.not-active-trips= t('.invalid', count: trip.before_breakpoint)
       = "/"
-      %span.active-trips valid days: #{trip.after_breakpoint}
+      %span.active-trips= t('.valid', count: trip.after_breakpoint)
       )
   .p-2.font-italic
     = "( #{trip.country_names} )"

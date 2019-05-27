@@ -1,7 +1,7 @@
 #heading-container
   .d-flex.flex-row.justify-content-between
-    %h1 Countries
-    = link_to 'New Country', new_admin_country_path, class: 'btn btn-primary align-self-center'
+    %h1= t('.title')
+    = link_to t('.create'), new_admin_country_path, class: 'btn btn-primary align-self-center'
 
   = render 'admin/components/search', model_name: :countries
 
