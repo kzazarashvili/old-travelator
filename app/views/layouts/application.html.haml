@@ -14,17 +14,25 @@
         = link_to 'Travelator', root_path, class: 'navbar-brand'
         %ul.navbar-nav
           - if user_signed_in?
-            -if current_user.admin?
-              %li.p-2.nav-item
-                = link_to 'Admin panel', [:admin, @countries], class: 'nav-link'
-              %li.p-2.nav-item
-                %span.navbar-text= current_user.name
-              %li.p-2.nav-item
+            .dropdown.dropright.dropdown-menu-right
+              .dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
                 %img.rounded-circle{alt: "Profile image", src: "#{current_user.image}",style: "width:50px;height:50px;"}
-              %li.p-2.nav-item
-                = link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'
+              .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+                -if current_user.admin?
+                  %li.p-2.nav-item
+                    %span.navbar-text
+                      Logged in as:
+                    %span
+                      = current_user.name
+                      %hr
+                  %li.p-2.nav-item
+                    = link_to 'Admin panel', [:admin, @countries], class: 'nav-link'
+                    %hr
+                  %li.p-2.nav-item
+                    = link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'
           - else
             %li.nav-item
               = link_to t('.login'), new_user_session_path, class: 'nav-link'
+
     = render 'layouts/flash'
     = yield
