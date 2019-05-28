@@ -9,7 +9,7 @@ AllCops:
     - 'Gemfile'
     - 'Gemfile.lock'
     - 'Rakefile'
-    
+
 Documentation:
   Enabled: false
 
@@ -20,7 +20,7 @@ LineLength:
   Max: 100
 
 MethodLength:
-  Max: 16
+  Max: 17
 
 Style/UnneededInterpolation:
   Enabled: false
