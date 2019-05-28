@@ -8,9 +8,11 @@
 //= require chosen-jquery
 //= require_tree .
 
-$(document).ready(function(){
+var ready = function() {
   hideAlert();
 
   window.setupCountriesSelect();
   window.setupDatePicker('#new_trip');
-});
+};
+
+$(document).on('turbolinks:load', ready);
