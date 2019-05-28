@@ -1,15 +1,22 @@
 class AlreadyTakenDatesValidator < ActiveModel::Validator
   def validate(record)
-    if shared_date(record).any? || range_of_previous_trips(record).include?(record.started_at)
-      record.errors.add(:started_at, I18n.t('trips.errors.dates-in-use'))
-    end
-
-    if range_of_previous_trips(record).include?(record.ended_at)
-      record.errors.add(:ended_at, I18n.t('trips.errors.dates-in-use'))
-    end
+    add_error_to(record, attribute: :started_at) if invalid_started_at?(record)
+    add_error_to(record, attribute: :ended_at) if invalid_started_at?(record)
   end
 
   private
+
+  def invalid_started_at?(record)
+    shared_date(record).any? || range_of_previous_trips(record).include?(record.started_at)
+  end
+
+  def invalid_ended_at?(record)
+    range_of_previous_trips(record).include?(record.ended_at)
+  end
+
+  def add_error_to(record, params = {})
+    record.errors.add(params[:attribute], I18n.t('trips.errors.dates-in-use'))
+  end
 
   def shared_date(record)
     range_of_previous_trips(record) & new_trip_date_range(record)

@@ -24,17 +24,7 @@ module AdminSearch
           parts << "#{attribute[:name]} = :exact_#{i}"
 
         else
-          case attribute[:method]
-          when :like
-            parts << "#{attribute[:name]} ILIKE :like_#{i}"
-
-          when :map
-            if attribute[:map].has_key?(keyword)
-              parts << "#{attribute[:name]} = #{attribute[:map][keyword]}"
-            end
-          else
-            parts << "#{attribute[:name]} = :exact_#{i}"
-          end
+          parts << part_for(attribute, i)
         end
       end
 
@@ -58,6 +48,17 @@ module AdminSearch
 
     else
       { attribute: 'id', direction: 'desc', value: { id: :desc } }
+    end
+  end
+
+  private
+
+  def part_for(attribute, index)
+    case attribute[:method]
+    when :like
+      "#{attribute[:name]} ILIKE :like_#{index}"
+    else
+      "#{attribute[:name]} = :exact_#{index}"
     end
   end
 end
