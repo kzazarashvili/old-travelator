@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: trips
+#
+#  id              :bigint           not null, primary key
+#  started_at      :date             not null
+#  ended_at        :date
+#  duration        :integer          default(0)
+#  user_id         :bigint
+#  past            :boolean          default(FALSE)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  active_duration :integer
+#  past_duration   :integer
+#
+
 class Trip < ApplicationRecord
   belongs_to :user
   has_many :visited_countries, dependent: :destroy
