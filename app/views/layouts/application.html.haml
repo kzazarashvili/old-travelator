@@ -14,9 +14,9 @@
         = link_to 'Travelator', root_path, class: 'navbar-brand'
         %ul.navbar-nav
           - if user_signed_in?
-            .dropdown.dropright.dropdown-menu-right
+            .dropdown
               .dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-                %img.rounded-circle{alt: "Profile image", src: "#{current_user.image}",style: "width:50px;height:50px;"}
+                %img.rounded-circle{alt: "Profile image", src: "#{current_user.image}",style: "width:40px;height:40px;"}
               .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
                 -if current_user.admin?
                   %li.p-2.nav-item
