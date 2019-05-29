@@ -1,3 +1,4 @@
 = simple_form_for [:admin, country] do |f|
   = f.input :name, label: t('.label.country')
+  = f.input :abbreviation, label: 'Abbreviation'
   = f.button :submit, t('.submit'), class: 'btn btn-primary'

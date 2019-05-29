@@ -10,6 +10,7 @@
     %tr
       %th= order_by_link 'Id'
       %th= order_by_link 'Name'
+      %th= order_by_link 'Abbreviation'
       %th
 
   %tbody
@@ -17,6 +18,7 @@
       %tr
         %td= link_to country.id, [:admin, country]
         %td= country.name
+        %td= country.abbreviation
         %td.text-right
           = render 'admin/components/view_edit_delete', object: country
 
