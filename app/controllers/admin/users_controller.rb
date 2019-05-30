@@ -5,7 +5,6 @@ module Admin
       { name: 'users.name', method: :like },
       { name: 'users.email', method: :like }
     ].freeze
-    
     before_action :set_user, only: %i[show edit update]
 
     def index
