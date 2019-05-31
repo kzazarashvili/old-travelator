@@ -11,7 +11,7 @@ FactoryBot.define do
       name { nil }
     end
 
-    trait :valid_update_name do
+    trait :new_name do
       name { 'Germany' }
     end
   end

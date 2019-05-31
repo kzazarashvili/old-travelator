@@ -17,15 +17,22 @@ RSpec.describe Admin::CountriesController, type: :controller do
     it { expect(response).to render_template :index }
   end
 
+  describe 'GET #show' do
+    before(:each) { get :show, params: { id: country.to_param } }
+
+    it { expect(assigns(:country)).to eq(country) }
+    it { expect(response).to render_template(:show) }
+  end
+
   describe 'GET #new' do
     before(:each) { get :new }
 
-    it { expect(assigns(:country)).to be_a(Country) }
+    it { expect(assigns(:country)).to be_a_new(Country) }
     it { expect(response).to render_template :new }
   end
 
   describe 'POST #create' do
-    context 'with valid params' do
+    context 'with valid attributes' do
       it 'creates a new Country' do
         expect {
           post :create, params: { country: valid_attributes }
@@ -39,20 +46,19 @@ RSpec.describe Admin::CountriesController, type: :controller do
       it { expect(response).to redirect_to([:admin, assigns(:country)]) }
     end
 
-    context 'with invalid params' do
+    context 'with invalid attributes' do
       before(:each) { post :create, params: { country: invalid_attributes } }
+
+      it 'does not create a new Country' do
+       expect {
+         post :create, params: { country: invalid_attributes }
+       }.to change(Country, :count).by(0)
+     end
 
       it { expect(assigns(:country)).to be_a(Country) }
       it { expect(assigns(:country)).not_to be_persisted }
       it { expect(response).to render_template(:new) }
     end
-  end
-
-  describe 'GET #show' do
-    before(:each) { get :show, params: { id: country.to_param } }
-
-    it { expect(assigns(:country)).to eq(country) }
-    it { expect(response).to render_template(:show) }
   end
 
   describe 'GET #edit' do
@@ -64,7 +70,7 @@ RSpec.describe Admin::CountriesController, type: :controller do
 
   describe 'PUT #update' do
     context 'with valid attributes' do
-      let!(:new_valid_attributes) { attributes_for(:country, :valid_update_name) }
+      let!(:new_valid_attributes) { attributes_for(:country, :new_name) }
 
       before(:each) { put :update, params: { id: country.to_param, country: new_valid_attributes } }
 
@@ -80,7 +86,7 @@ RSpec.describe Admin::CountriesController, type: :controller do
     context 'with invalid attributes' do
       before { put :update, params: { id: country.to_param, country: invalid_attributes } }
 
-      it 'is not able to update with invalid name' do
+      it 'does not update country name with invalid attributes' do
         country.reload
         expect(country.name).not_to eq(invalid_attributes[:name])
       end
@@ -91,13 +97,13 @@ RSpec.describe Admin::CountriesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    it 'destroy the requested country' do
+    it 'destroys the requested country' do
       expect {
         delete :destroy, params: { id: country.to_param }
       }.to change(Country, :count).by(-1)
     end
 
-    it 'assign country to @country' do
+    it 'assign country to @country and checking redirect_to' do
       delete :destroy, params: { id: country.to_param }
 
       expect(assigns(:country)).to eq(country)

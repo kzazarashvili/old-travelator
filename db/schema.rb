@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_05_29_200753) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "abbreviation"
   end
 
   create_table "trips", force: :cascade do |t|
