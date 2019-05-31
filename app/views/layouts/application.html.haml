@@ -16,12 +16,12 @@
           - if user_signed_in?
             .dropdown
               .dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown'}
-                %img.rounded-circle{ src: "#{current_user.image}",style: 'width:40px;height:40px;'}
+                %img.rounded-circle.profile-image-size{ src: "#{current_user.image}" }
               .dropdown-menu{'aria-labelledby' => 'dropdownMenuButton'}
                 -if current_user.admin?
                   %li.p-2.nav-item
                     %span.navbar-text
-                      = t('.login-name')
+                      = t('.login-text')
                     %span
                       = current_user.name
                       %hr
