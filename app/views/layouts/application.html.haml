@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}
-    %title Travelator
+    %title= t('app.title')
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -11,13 +11,13 @@
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .container
-        = link_to 'Travelator', root_path, class: 'navbar-brand'
+        = link_to t('app.title'), root_path, class: 'navbar-brand'
         %ul.navbar-nav
           - if user_signed_in?
             .dropdown
-              .dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-                %img.rounded-circle{alt: "Profile image", src: "#{current_user.image}",style: "width:40px;height:40px;"}
-              .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+              .dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown'}
+                %img.rounded-circle{ src: "#{current_user.image}",style: 'width:40px;height:40px;'}
+              .dropdown-menu{'aria-labelledby' => 'dropdownMenuButton'}
                 -if current_user.admin?
                   %li.p-2.nav-item
                     %span.navbar-text
