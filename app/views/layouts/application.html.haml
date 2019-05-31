@@ -16,7 +16,7 @@
           - if user_signed_in?
             .dropdown
               .dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown'}
-                %img.rounded-circle.profile-image-size{ src: "#{current_user.image}" }
+                %img.rounded-circle.profile-image{ src: "#{current_user.image}" }
               .dropdown-menu{'aria-labelledby' => 'dropdownMenuButton'}
                 -if current_user.admin?
                   %li.p-2.nav-item
