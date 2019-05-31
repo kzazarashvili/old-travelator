@@ -43,6 +43,7 @@ en:
       form:
         label:
           country: Country name
+          abbreviation: Abbreviation
         submit: Save
       edit:
         title: Edit country details

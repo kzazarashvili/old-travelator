@@ -2,7 +2,8 @@ module Admin
   class CountriesController < BaseController
     SEARCH_ATTRIBUTES = [
       { name: 'countries.id', method: :exact, type: :integer },
-      { name: 'countries.name', method: :like }
+      { name: 'countries.name', method: :like },
+      { name: 'countries.abbreviation', method: :like }
     ].freeze
 
     before_action :set_country, only: %i[show edit update destroy]
@@ -49,7 +50,7 @@ module Admin
     end
 
     def country_params
-      params.require(:country).permit(:name)
+      params.require(:country).permit(:name, :abbreviation)
     end
   end
 end
