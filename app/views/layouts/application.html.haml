@@ -21,12 +21,12 @@
                 -if current_user.admin?
                   %li.p-2.nav-item
                     %span.navbar-text
-                      Logged in as:
+                      = t('.login-name')
                     %span
                       = current_user.name
                       %hr
                   %li.p-2.nav-item
-                    = link_to 'Admin panel', [:admin, @countries], class: 'nav-link'
+                    = link_to t('.links.admin'), [:admin, @countries], class: 'nav-link'
                     %hr
                   %li.p-2.nav-item
                     = link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'

@@ -73,6 +73,9 @@ en:
     application:
       logout: Log out
       login: Login
+      login-name: 'Logged in as: '
+      links:
+        admin: Admin panel
   devise:
     confirmations:
       new:
