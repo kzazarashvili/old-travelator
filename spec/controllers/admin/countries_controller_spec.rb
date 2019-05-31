@@ -74,7 +74,7 @@ RSpec.describe Admin::CountriesController, type: :controller do
 
       before(:each) { put :update, params: { id: country.to_param, country: new_valid_attributes } }
 
-      it 'update a country with valid_update_name' do
+      it 'updates country name according to new attributes' do
         country.reload
         expect(country.name).to eq new_valid_attributes[:name]
       end
@@ -103,7 +103,7 @@ RSpec.describe Admin::CountriesController, type: :controller do
       }.to change(Country, :count).by(-1)
     end
 
-    it 'assign country to @country and checking redirect_to' do
+    it 'aassigns country to @country and checks redirection to correct path' do
       delete :destroy, params: { id: country.to_param }
 
       expect(assigns(:country)).to eq(country)
