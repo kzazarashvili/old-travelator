@@ -84,7 +84,7 @@ RSpec.describe TripsController, type: :controller do
       }.to change(Trip, :count).by(-1)
     end
 
-    it 'assigns a trip to delite as @trip' do
+    it 'assigns a trip to delete as @trip' do
       delete :destroy, xhr: true, format: :js, params: { id: trip.to_param }
 
       expect(assigns(:trip)).to eq(trip)
