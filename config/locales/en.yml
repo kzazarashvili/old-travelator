@@ -75,7 +75,6 @@ en:
     application:
       logout: Log out
       login: Login
-      login-text: 'Logged in as: '
       links:
         admin: Admin panel
   devise:
