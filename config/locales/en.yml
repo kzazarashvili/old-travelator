@@ -30,6 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  app:
+    title: Travelator
   admin:
     components:
       search:
@@ -74,6 +76,8 @@ en:
     application:
       logout: Log out
       login: Login
+      links:
+        admin: Admin panel
   devise:
     confirmations:
       new:
