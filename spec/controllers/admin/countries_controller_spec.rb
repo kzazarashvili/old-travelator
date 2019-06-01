@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Admin::CountriesController, type: :controller do
   let!(:admin) { create(:user, :admin) }
   let!(:country) { create(:country) }
-  let!(:valid_attributes) { attributes_for(:country, :valid_name) }
-  let!(:invalid_attributes) { attributes_for(:country, :invalid_name) }
+  let!(:valid_attributes) { attributes_for(:country, :valid_country) }
+  let!(:invalid_attributes) { attributes_for(:country, :invalid_country) }
 
   before(:each) { sign_in(admin) }
 
