@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Admin::CountriesController, type: :controller do
   let!(:admin) { create(:user, :admin) }
   let!(:country) { create(:country) }
-  let!(:valid_attributes) { attributes_for(:country, :valid_name) }
-  let!(:invalid_attributes) { attributes_for(:country, :invalid_name) }
+  let!(:valid_attributes) { attributes_for(:country, :valid) }
+  let!(:invalid_attributes) { attributes_for(:country, :invalid) }
 
   before(:each) { sign_in(admin) }
 
@@ -39,11 +39,18 @@ RSpec.describe Admin::CountriesController, type: :controller do
         }.to change(Country, :count).by(1)
       end
 
-      before(:each) { post :create, params: { country: valid_attributes } }
+      it 'assigns and saves new country' do
+        post :create, params: { country: valid_attributes }
 
-      it { expect(assigns(:country)).to be_a(Country) }
-      it { expect(assigns(:country)).to be_persisted }
-      it { expect(response).to redirect_to([:admin, assigns(:country)]) }
+        expect(assigns(:country)).to be_a(Country)
+        expect(assigns(:country)).to be_persisted
+      end
+
+      it 'redirect to created country' do
+        post :create, params: { country: valid_attributes }
+
+        expect(response).to redirect_to([:admin, assigns(:country)])
+      end
     end
 
     context 'with invalid attributes' do

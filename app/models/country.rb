@@ -12,7 +12,7 @@ class Country < ApplicationRecord
   has_many :visited_countries, dependent: :destroy
   has_many :trips, through: :visited_countries
 
-  validates :name, presence: true
+  validates :name, :abbreviation, presence: true, uniqueness: { case_sensitive: false }
 
   def self.names
     pluck(:name).join(', ')
