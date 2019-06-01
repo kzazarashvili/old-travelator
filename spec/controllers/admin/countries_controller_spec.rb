@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Admin::CountriesController, type: :controller do
   let!(:admin) { create(:user, :admin) }
   let!(:country) { create(:country) }
-  let!(:valid_attributes) { attributes_for(:country, :valid_country) }
-  let!(:invalid_attributes) { attributes_for(:country, :invalid_country) }
+  let!(:valid_attributes) { attributes_for(:country, :valid) }
+  let!(:invalid_attributes) { attributes_for(:country, :invalid) }
 
   before(:each) { sign_in(admin) }
 
@@ -39,12 +39,11 @@ RSpec.describe Admin::CountriesController, type: :controller do
         }.to change(Country, :count).by(1)
       end
 
-      it 'assigns and saves new cuntry' do
+      it 'assigns and saves new country' do
         post :create, params: { country: valid_attributes }
 
         expect(assigns(:country)).to be_a(Country)
         expect(assigns(:country)).to be_persisted
-        # expect(response).to redirect_to([:admin, assigns(:country)])
       end
 
       it 'redirect to created country' do

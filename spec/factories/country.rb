@@ -3,12 +3,12 @@ FactoryBot.define do
     name { 'Poland' }
     abbreviation { 'Pl' }
 
-    trait :valid_country do
+    trait :valid do
       name { 'Georgia' }
       abbreviation { 'Ge' }
     end
 
-    trait :invalid_country do
+    trait :invalid do
       name { nil }
       abbreviation { nil }
     end
