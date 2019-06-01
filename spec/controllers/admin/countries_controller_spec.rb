@@ -39,11 +39,19 @@ RSpec.describe Admin::CountriesController, type: :controller do
         }.to change(Country, :count).by(1)
       end
 
-      before(:each) { post :create, params: { country: valid_attributes } }
+      it 'assigns and saves new cuntry' do
+        post :create, params: { country: valid_attributes }
 
-      it { expect(assigns(:country)).to be_a(Country) }
-      it { expect(assigns(:country)).to be_persisted }
-      it { expect(response).to redirect_to([:admin, assigns(:country)]) }
+        expect(assigns(:country)).to be_a(Country)
+        expect(assigns(:country)).to be_persisted
+        # expect(response).to redirect_to([:admin, assigns(:country)])
+      end
+
+      it 'redirect to created country' do
+        post :create, params: { country: valid_attributes }
+
+        expect(response).to redirect_to([:admin, assigns(:country)])
+      end
     end
 
     context 'with invalid attributes' do
