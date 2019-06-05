@@ -13,7 +13,7 @@ gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'flatpickr_rails'
-gem "font-awesome-rails"
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'

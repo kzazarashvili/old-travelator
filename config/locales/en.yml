@@ -187,7 +187,9 @@ en:
       ended_at: cannot be before the start date
       dates-in-use: Dates are in use
     form:
-      submit: Create trip
+      submit:
+        create: Create trip
+        update: Update
       placeholder:
         countries: Select Countries
         started_at: Start date
