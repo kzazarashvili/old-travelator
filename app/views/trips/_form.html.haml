@@ -8,14 +8,7 @@
   .p-2
     = f.input :ended_at, placeholder: t('.placeholder.ended_at'), label: false , as: :string, readonly: true
   .ml-auto.p-2
-    -# = f.button :submit, class: 'btn btn-success'
-    - if action == 'create'
-      = f.button :button, class: "btn btn-success btn-icon-split" do
-        %span.icon.text-white-50
-          %i.fas.fa-check
-        %span.text= t(".submit.#{action}")
-    - else
-      = f.button :button, class: "btn btn-primary btn-icon-split" do
-        %span.icon.text-white-50
-          %i.fas.fa-edit
-        %span.text= t(".submit.#{action}")
+    = f.button :button, class: "btn btn-#{class_for(action)} btn-icon-split" do
+      %span.icon.text-white-50
+        %i{class: "fas fa-#{icon_for(action)}"}
+      %span.text= t(".submit.#{action}")

@@ -188,7 +188,7 @@ en:
       dates-in-use: Dates are in use
     form:
       submit:
-        create: Create trip
+        create: Create
         update: Update
       placeholder:
         countries: Select Countries
@@ -203,7 +203,6 @@ en:
       invalid: 'invalid days: %{count}'
       valid: 'valid days: %{count}'
       button:
-        delete: Delete trip
         edit: Edit
     index:
       greeting: Hello, create here your trip.
