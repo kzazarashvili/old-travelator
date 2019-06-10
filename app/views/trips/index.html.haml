@@ -11,5 +11,10 @@
   - if @calculator.over_limit?
     = t('.over-limit')
   - else
-    = t('.message.used', count: @calculator.spent_days)
-    = t('.message.available', count: @calculator.available_days)
+    .row.align-items-center
+      .col-auto
+        .font-weight-bold.text-gray-800
+          = t('.message.used', count_spent: @calculator.spent_days, count_to_use: @calculator.available_days)
+        .col-auto
+          .progress.progress-sm.mr-2
+            .progress-bar.bg-info{ style: "width: #{proces_value(@calculator) }%"}

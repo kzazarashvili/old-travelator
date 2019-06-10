@@ -208,5 +208,4 @@ en:
       greeting: Hello, create here your trip.
       over-limit: You are over limit !!!
       message:
-        used: 'You already used %{count} days /'
-        available: 'You can still use %{count} days'
+        used: 'You already used %{count_spent} days / You can still use %{count_to_use} days'

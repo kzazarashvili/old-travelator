@@ -11,3 +11,7 @@ end
 def icon_for(action)
   action == 'create' ? 'check' : 'edit'
 end
+
+def proces_value(calculator)
+  calculator.spent_days / 0.9
+end
