@@ -117,6 +117,7 @@ en:
         submit: Send me reset password instructions
         label:
           email: Email
+        statement: Just enter your email address below and we'll send you a link to reset your password!
       edit:
         title: Change your password
         submit: Change my password
