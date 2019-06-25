@@ -126,13 +126,16 @@ en:
         characters-limit: "%{limit} characters minimum"
     registrations:
       new:
-        title: Sign up
+        title: Create an account
         submit: Sign up
         label:
           username: Username
           email: Email
           password: Password
           password_confirmation: Password confirmations
+        sign-up:
+          google: Register with Google
+          facebook: Register with Facebook
         character-limit: "%{limit} characters minimum"
       edit:
         title: Edit User
