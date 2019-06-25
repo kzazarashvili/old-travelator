@@ -155,7 +155,7 @@ en:
         character-limit: "%{limit} characters minimum"
     sessions:
       new:
-        title: Log in
+        title: Welcome back !
         submit: Log in
         label:
           email: Email
@@ -167,7 +167,7 @@ en:
     shared:
       links:
         log-in: Log in
-        sign-up: Sign up
+        sign-up: Create an account
         forgot-your-password: Forgot your password?
         didnt-receive-confirmation: "Didn't receive confirmation instructions?"
         didnt-receive-unlock: "Didn't receive unlock instructions?"
