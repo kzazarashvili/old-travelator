@@ -137,7 +137,7 @@ en:
         sign-up:
           google: Register with Google
           facebook: Register with Facebook
-        character-limit: "%{limit} characters minimum"
+        character-limit: "Password %{limit} characters minimum"
       edit:
         title: Edit User
         submit: Update
@@ -159,7 +159,7 @@ en:
         character-limit: "%{limit} characters minimum"
     sessions:
       new:
-        title: Welcome back !
+        title: Log in
         submit: Log in
         label:
           email: Email

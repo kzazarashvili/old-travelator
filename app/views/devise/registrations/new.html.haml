@@ -8,24 +8,16 @@
             .text-center
               %h4.text-gray-900.mb-4= t('.title')
             .user
-              = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-                = render 'devise/shared/error_messages', resource: resource
+              = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal' }) do |f|
                 .form-group
-                  = f.label :username, t('.label.username')
-                  = f.text_field :name, autofocus: true, class: 'form-control'
+                  = f.input :name, autofocus: true, class: 'form-control', label: t('.label.username')
                 .form-group
-                  = f.label :email, t('.label.email')
-                  = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+                  = f.input :email, autofocus: true, autocomplete: 'email', class: 'form-control', label: t('.label.email')
                 .form-group.row
                   .col-sm-6.mb-3.mb-sm-0
-                    = f.label :password, t('.label.password')
-                    - if @minimum_password_length
-                      %em
-                        = t('.character-limit', limit: @minimum_password_length)
-                    = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
+                    = f.input :password, autocomplete: 'new-password', class: 'form-control', label: t('.character-limit', limit: @minimum_password_length)
                   .col-sm-6
-                    = f.label :password_confirmation, t('.label.password_confirmation')
-                    = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
+                    = f.input :password_confirmation, autocomplete: 'new-password', class: 'form-control', label: t('.label.password_confirmation')
                 .actions
                   = f.submit t('.submit'), class: 'btn btn-primary btn-user btn-block'
               %hr

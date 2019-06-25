@@ -13,11 +13,9 @@
                   .mb-4
                     = t('.statement')
                 .user
-                  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-                    = render 'devise/shared/error_messages', resource: resource
+                  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
                     .form-group
-                      = f.label :email, t('.label.email')
-                      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+                      = f.input :email, autofocus: true, autocomplete: 'email', class: 'form-control', label:t('.label.email')
                     .actions
                       = f.submit t('.submit'), class: 'btn btn-primary btn-user btn-block'
                     %hr
