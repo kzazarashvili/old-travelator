@@ -1,4 +1,4 @@
-.d-flex[trip]{ class: trip.past ? 'not-active-trips' : 'active-trips' }
+.d-flex[trip]
   .p-2
     %label= t('.label.started_at')
     %span= formated_date(trip.started_at)
