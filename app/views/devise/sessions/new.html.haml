@@ -1,25 +1,35 @@
 .container
-  .col-md-9
-    %h2= t('.title')
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .form-group
-        = f.label :email, t('.label.email')
-        %br
-        = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-      .form-group
-        = f.label :password, t('.label.password')
-        %br
-        = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-          = f.label :remember_me, t('.label.remember')
-      .actions
-        = f.submit t('.submit'), class: 'btn btn-primary'
-    %br
-    = link_to t('.sign-in.google'), user_google_oauth2_omniauth_authorize_path
-    %br
-    = link_to t('.sign-in.facebook'), user_facebook_omniauth_authorize_path
-    %br
-    %br
-    = render 'devise/shared/links'
+  .row.justify-content-center
+    .col-xl-10.col-lg-12.col-md-9
+      .card.o-hidden.border-0.shadow-lg.my-5
+        .card-body.p-0
+          .row
+            .col-lg-6.d-none.d-lg-block.bg-login-image
+            .col-lg-6
+              .p-5
+                .text-center
+                  %h2= t('.title')
+                .user
+                  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                    .form-group
+                      = f.label :email, t('.label.email')
+                      %br
+                      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+                    .form-group
+                      = f.label :password, t('.label.password')
+                      %br
+                      = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
+                      .form-group
+                        .custom-control.custom-checkbox.small
+                        - if devise_mapping.rememberable?
+                          = f.check_box :remember_me
+                          = f.label :remember_me, t('.label.remember')
+                      .actions
+                        = f.submit t('.submit'), class: 'btn btn-primary btn-user btn-block'
+                  %hr
+                  = link_to t('.sign-in.google'), user_google_oauth2_omniauth_authorize_path, class: 'btn btn-google btn-user btn-block'
+                  %br
+                  = link_to t('.sign-in.facebook'), user_facebook_omniauth_authorize_path, class: 'btn btn-facebook btn-user btn-block'
+                  %hr
+                  .text-center
+                    = render 'devise/shared/links'

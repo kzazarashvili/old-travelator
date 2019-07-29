@@ -9,3 +9,19 @@
 .not-active-trips {
   background-color: #e9ecef;
 }
+
+.margin-left {
+  margin-left: 10px;
+}
+
+
+.trip_started_at {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.trip-form {
+  align-items: baseline;
+  width: 100%;
+}

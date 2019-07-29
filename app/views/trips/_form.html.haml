@@ -1,4 +1,4 @@
-= simple_form_for trip, remote: true, html: { class: 'form-inline d-flex' } do |f|
+= simple_form_for trip, remote: true, html: { class: 'd-flex trip-form' } do |f|
   .p-2
     = f.association :countries, collection: Country.all, label: false, input_html: { class: 'country-chosen',  data: { placeholder: t('.placeholder.countries') } }
   .p-2
@@ -8,4 +8,7 @@
   .p-2
     = f.input :ended_at, placeholder: t('.placeholder.ended_at'), label: false , as: :string, readonly: true
   .ml-auto.p-2
-    = f.button :submit, class: 'btn btn-primary'
+    = f.button :button, class: "btn btn-#{class_for(action)} btn-icon-split" do
+      %span.icon.text-white-50
+        %i{class: "fas fa-#{icon_for(action)}"}
+      %span.text= t(".submit.#{action}")

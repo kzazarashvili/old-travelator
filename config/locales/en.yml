@@ -117,6 +117,7 @@ en:
         submit: Send me reset password instructions
         label:
           email: Email
+        statement: Just enter your email address below and we'll send you a link to reset your password!
       edit:
         title: Change your password
         submit: Change my password
@@ -126,14 +127,17 @@ en:
         characters-limit: "%{limit} characters minimum"
     registrations:
       new:
-        title: Sign up
+        title: Create an account
         submit: Sign up
         label:
           username: Username
           email: Email
           password: Password
           password_confirmation: Password confirmations
-        character-limit: "%{limit} characters minimum"
+        sign-up:
+          google: Register with Google
+          facebook: Register with Facebook
+        character-limit: "Password %{limit} characters minimum"
       edit:
         title: Edit User
         submit: Update
@@ -167,7 +171,7 @@ en:
     shared:
       links:
         log-in: Log in
-        sign-up: Sign up
+        sign-up: Create an account
         forgot-your-password: Forgot your password?
         didnt-receive-confirmation: "Didn't receive confirmation instructions?"
         didnt-receive-unlock: "Didn't receive unlock instructions?"
@@ -187,7 +191,9 @@ en:
       ended_at: cannot be before the start date
       dates-in-use: Dates are in use
     form:
-      submit: Create trip
+      submit:
+        create: Create
+        update: Update
       placeholder:
         countries: Select Countries
         started_at: Start date
@@ -201,11 +207,9 @@ en:
       invalid: 'invalid days: %{count}'
       valid: 'valid days: %{count}'
       button:
-        delete: Delete trip
         edit: Edit
     index:
       greeting: Hello, create here your trip.
       over-limit: You are over limit !!!
       message:
-        used: 'You already used %{count} days /'
-        available: 'You can still use %{count} days'
+        used: 'You already used %{count_spent} days / You can still use %{count_to_use} days'
