@@ -15,7 +15,7 @@
                 .user
                   = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
                     .form-group
-                      = f.input :email, autofocus: true, autocomplete: 'email', class: 'form-control', label:t('.label.email')
+                      = f.input :email, autofocus: true, autocomplete: 'email', class: 'form-control', label: t('.label.email')
                     .actions
                       = f.submit t('.submit'), class: 'btn btn-primary btn-user btn-block'
                     %hr
